@@ -40,10 +40,10 @@ const skillsData = {
 
 const SkillCard = ({ name, Icon, color, delay }) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.8 }}
+    initial={{ opacity: 0, scale: 0.85 }}
     whileInView={{ opacity: 1, scale: 1 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.4, delay }}
+    transition={{ duration: 0.35, delay, ease: [0.25, 0.1, 0.25, 1] }}
     whileHover={{ y: -8, boxShadow: `0 20px 40px ${color}20` }}
     className="glass rounded-2xl p-5 flex flex-col items-center gap-3 border border-dark-border hover:border-white/10 transition-all cursor-default group"
   >
@@ -70,6 +70,7 @@ const Skills = () => {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 className="text-lg font-semibold text-slate-400 mb-6 flex items-center gap-3"
               >
                 <span

@@ -37,6 +37,7 @@ body {
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -61,4 +62,15 @@ body {
   .section-padding {
     padding: 6rem 3rem;
   }
+}
+
+/* Promote scroll-animated elements to their own compositor layer */
+[data-framer-motion],
+.framer-motion-element {
+  will-change: transform, opacity;
+}
+
+/* Ensure backdrop-filter elements are GPU-composited */
+.glass {
+  transform: translateZ(0);
 }

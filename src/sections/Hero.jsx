@@ -46,7 +46,7 @@ const Hero = () => {
         init={initParticles}
         options={{
           background: { color: { value: 'transparent' } },
-          fpsLimit: 60,
+          fpsLimit: 120,
           interactivity: {
             events: {
               onHover: { enable: true, mode: 'repulse' },
@@ -72,7 +72,7 @@ const Hero = () => {
               straight: false,
               outModes: { default: 'bounce' },
             },
-            number: { density: { enable: true, area: 800 }, value: 60 },
+            number: { density: { enable: true, area: 800 }, value: 50 },
             opacity: { value: 0.3 },
             shape: { type: 'circle' },
             size: { value: { min: 1, max: 3 } },
@@ -91,7 +91,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-slate-300 mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -101,7 +101,7 @@ const Hero = () => {
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-6xl md:text-8xl font-extrabold text-white mb-4 leading-tight"
         >
           Waqas{' '}
@@ -111,7 +111,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-2xl md:text-4xl font-bold mb-6 h-12"
         >
           <span className="gradient-text">{displayText}</span>
@@ -121,7 +121,7 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10"
         >
           Building scalable and high-performance web applications using modern technologies.
@@ -131,7 +131,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-wrap items-center justify-center gap-4 mb-12"
         >
           <motion.a
@@ -166,7 +166,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex items-center justify-center gap-5"
         >
           {[
