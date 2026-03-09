@@ -13,6 +13,10 @@ const techColors = {
   'TypeScript': '#3178C6',
   'Spring Boot': '#6DB33F',
   'Flutter': '#54C5F8',
+  'HTML': '#E34F26',
+  'CSS': '#1572B6',
+  'JavaScript': '#F7DF1E',
+  'C++': '#00599C',
 };
 
 const ProjectCard = ({ project, index }) => (

@@ -51,6 +51,38 @@ export const projects = [
     github: 'https://github.com/waqas-uddin/QuickHire',
     color: '#FF6B6B',
   },
+  {
+    id: 4,
+    title: 'Music Streaming App',
+    description: 'Full-stack music streaming platform with user authentication, playlist management, song search, and a React frontend backed by a Node.js/Express REST API and MongoDB.',
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
+    github: 'https://github.com/waqas-uddin/Music_StreamingApp_MERN',
+    color: '#A855F7',
+  },
+  {
+    id: 5,
+    title: 'Text Editor',
+    description: 'MERN stack text editor with real-time editing, document management, and user authentication, built with React on the frontend and Node.js/Express on the backend.',
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
+    github: 'https://github.com/waqas-uddin/Text_Editor_MERN',
+    color: '#F59E0B',
+  },
+  {
+    id: 6,
+    title: 'Language Translator',
+    description: 'Browser-based language translator supporting multiple languages with instant translation, language detection, and a clean responsive interface built with vanilla web technologies.',
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    github: 'https://github.com/waqas-uddin/language_translator',
+    color: '#10B981',
+  },
+  {
+    id: 7,
+    title: 'Computer Shop Management System',
+    description: 'Console-based C++ application for managing computer shop inventory, processing sales, and maintaining customer records using object-oriented programming principles.',
+    tech: ['C++'],
+    github: 'https://github.com/waqas-uddin/Computer-Shop-Management-System',
+    color: '#00599C',
+  },
 ];
 
 export const experiences = [
