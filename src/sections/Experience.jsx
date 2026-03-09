@@ -21,10 +21,10 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
                 className="relative pl-16"
               >
                 {/* Timeline dot */}
@@ -32,7 +32,7 @@ const Experience = () => {
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 + 0.15, ease: [0.25, 0.1, 0.25, 1] }}
                   className="absolute left-0 w-12 h-12 rounded-full flex items-center justify-center border-2"
                   style={{
                     background: `${exp.color}20`,

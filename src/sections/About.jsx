@@ -17,10 +17,10 @@ const About = () => {
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         {/* Text Content */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <h3 className="text-3xl font-bold text-white mb-6">
             Full Stack Developer &{' '}
@@ -46,10 +46,10 @@ const About = () => {
 
         {/* Cards */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="grid gap-4"
         >
           {cards.map((card, i) => (
@@ -58,7 +58,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              transition={{ duration: 0.4, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
               whileHover={{ x: 8, boxShadow: '0 0 30px rgba(108,99,255,0.15)' }}
               className="glass rounded-2xl p-6 flex items-center gap-5 border border-dark-border hover:border-primary/30 transition-all cursor-default"
             >

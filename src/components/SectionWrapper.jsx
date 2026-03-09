@@ -10,9 +10,10 @@ const SectionWrapper = ({ children, id, className = '' }) => {
     <motion.section
       id={id}
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      style={{ willChange: 'opacity, transform' }}
       className={`section-padding max-w-7xl mx-auto ${className}`}
     >
       {children}

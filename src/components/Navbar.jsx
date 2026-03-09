@@ -1,20 +1,29 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { navLinks } from '../data';
-import { useScrollProgress } from '../hooks/useScrollProgress';
 import { useActiveSection } from '../hooks/useActiveSection';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const progress = useScrollProgress();
+  const { scrollYProgress } = useScroll();
   const activeSection = useActiveSection();
+  const rafRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 50);
+        rafRef.current = null;
+      });
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   return (
@@ -22,10 +31,10 @@ const Navbar = () => {
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 z-[100] bg-dark-border">
         <motion.div
-          className="h-full"
+          className="h-full origin-left"
           style={{
             background: 'linear-gradient(90deg, #6C63FF, #00D4FF)',
-            width: `${progress}%`,
+            scaleX: scrollYProgress,
           }}
         />
       </div>
@@ -83,7 +92,7 @@ const Navbar = () => {
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25 }}
+            transition={{ type: 'tween', duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             className="fixed inset-y-0 right-0 w-72 z-40 glass shadow-2xl p-8 flex flex-col gap-6 pt-24"
           >
             {navLinks.map((link) => (
