@@ -6,7 +6,7 @@ import { HiBriefcase } from 'react-icons/hi';
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 bg-dark-card/30">
+    <section id="experience" className="py-24 dark:bg-dark-card/30 bg-slate-100/50">
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle title="Work Experience" subtitle="My Journey" />
 
@@ -21,8 +21,8 @@ const Experience = () => {
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ x: -40 }}
+                whileInView={{ x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
                 className="relative pl-16"
@@ -45,11 +45,11 @@ const Experience = () => {
                 {/* Card */}
                 <motion.div
                   whileHover={{ x: 5, boxShadow: `0 0 30px ${exp.color}15` }}
-                  className="glass rounded-2xl p-6 border border-dark-border hover:border-primary/20 transition-all"
+                  className="glass rounded-2xl p-6 dark:border-dark-border border-slate-200 hover:border-primary/20 transition-all border"
                 >
                   <div className="flex flex-wrap justify-between items-start gap-2 mb-4">
                     <div>
-                      <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                      <h3 className="text-xl font-bold dark:text-white text-slate-900">{exp.role}</h3>
                       <p className="text-primary font-medium">{exp.company}</p>
                     </div>
                     <span
@@ -65,7 +65,7 @@ const Experience = () => {
                   </div>
                   <ul className="space-y-2">
                     {exp.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2 text-slate-400 text-sm">
+                      <li key={i} className="flex items-start gap-2 dark:text-slate-400 text-slate-600 text-sm">
                         <span className="text-primary mt-1 flex-shrink-0">▸</span>
                         {point}
                       </li>
@@ -82,3 +82,4 @@ const Experience = () => {
 };
 
 export default Experience;
+

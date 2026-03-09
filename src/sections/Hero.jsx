@@ -44,7 +44,7 @@ const Hero = () => {
           initial={{ y: 20 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-slate-300 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm dark:text-slate-300 text-slate-600 mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           Available for opportunities
@@ -54,7 +54,7 @@ const Hero = () => {
           initial={{ y: 30 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-6xl md:text-8xl font-extrabold text-white mb-4 leading-tight"
+          className="text-6xl md:text-8xl font-extrabold dark:text-white text-slate-900 mb-4 leading-tight"
         >
           Waqas{' '}
           <span className="gradient-text">Ahmed</span>
@@ -74,7 +74,7 @@ const Hero = () => {
           initial={{ y: 30 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10"
+          className="text-lg md:text-xl dark:text-slate-400 text-slate-600 max-w-2xl mx-auto mb-10"
         >
           Building scalable and high-performance web applications using modern technologies.
         </motion.p>
@@ -99,7 +99,7 @@ const Hero = () => {
             href="#contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-white text-base glass border border-primary/30 hover:border-primary/60 transition-colors"
+            className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold dark:text-white text-slate-900 text-base glass border border-primary/30 hover:border-primary/60 transition-colors"
           >
             Contact Me
           </motion.a>
@@ -108,7 +108,7 @@ const Hero = () => {
             download
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold text-slate-300 text-base border border-dark-border hover:border-slate-500 transition-colors glass"
+            className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold dark:text-slate-300 text-slate-600 text-base dark:border-dark-border border-slate-200 hover:border-slate-500 transition-colors glass border"
           >
             <HiDownload /> Resume
           </motion.a>
@@ -122,9 +122,9 @@ const Hero = () => {
           className="flex items-center justify-center gap-5"
         >
           {[
-            { icon: FaGithub, href: 'https://github.com/waqas-uddin', label: 'GitHub' },
-            { icon: FaLinkedin, href: 'https://linkedin.com/in/waqas-ahmed-6baa89274', label: 'LinkedIn' },
-          ].map(({ icon: Icon, href, label }) => (
+            { Icon: FaGithub, href: 'https://github.com/waqas-uddin', label: 'GitHub' },
+            { Icon: FaLinkedin, href: 'https://linkedin.com/in/waqas-ahmed-6baa89274', label: 'LinkedIn' },
+          ].map(({ Icon, href, label }) => (
             <motion.a
               key={label}
               href={href}
@@ -132,7 +132,7 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, y: -4 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 rounded-full glass flex items-center justify-center text-slate-400 hover:text-white transition-colors border border-dark-border hover:border-primary/50"
+              className="w-12 h-12 rounded-full glass flex items-center justify-center dark:text-slate-400 text-slate-500 dark:hover:text-white hover:text-slate-900 transition-colors dark:border-dark-border border-slate-200 hover:border-primary/50 border"
             >
               <Icon size={20} />
             </motion.a>
@@ -144,7 +144,7 @@ const Hero = () => {
       <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-xs text-slate-500">Scroll down</span>
+        <span className="text-xs dark:text-slate-500 text-slate-400">Scroll down</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
@@ -156,3 +156,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
