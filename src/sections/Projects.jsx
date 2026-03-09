@@ -21,42 +21,47 @@ const techColors = {
 
 const ProjectCard = ({ project, index }) => (
   <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial={{ y: 40 }}
+    whileInView={{ y: 0 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-    whileHover={{ y: -10 }}
-    className="glass rounded-2xl overflow-hidden border border-dark-border hover:border-primary/30 transition-all group"
+    transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+    whileHover={{ y: -8 }}
+    className="glass rounded-2xl overflow-hidden border dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all group"
   >
-    {/* Top Color Bar */}
-    <div
-      className="h-1 w-full"
-      style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }}
-    />
-
-    <div className="p-8">
-      {/* Project Number */}
+    {/* Project Image */}
+    <div className="relative overflow-hidden" style={{ height: '180px' }}>
+      <img
+        src={project.image}
+        alt={project.title}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+        onError={(e) => {
+          e.currentTarget.style.display = 'none';
+          e.currentTarget.parentElement.style.background = `linear-gradient(135deg, ${project.color}20, ${project.color}05)`;
+        }}
+      />
+      {/* Top Color Bar */}
       <div
-        className="text-5xl font-black mb-4 opacity-10 group-hover:opacity-20 transition-opacity"
-        style={{ color: project.color }}
-      >
-        {String(index + 1).padStart(2, '0')}
-      </div>
+        className="absolute top-0 left-0 w-full h-1"
+        style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }}
+      />
+    </div>
 
-      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-all">
+    <div className="p-6">
+      <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2 group-hover:text-primary transition-all">
         {project.title}
       </h3>
 
-      <p className="text-slate-400 leading-relaxed mb-6 text-sm">
+      <p className="dark:text-slate-400 text-slate-600 leading-relaxed mb-4 text-sm">
         {project.description}
       </p>
 
       {/* Tech Stack */}
-      <div className="flex flex-wrap gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-4">
         {project.tech.map((tech) => (
           <span
             key={tech}
-            className="px-3 py-1 rounded-full text-xs font-medium"
+            className="px-2.5 py-1 rounded-full text-xs font-medium"
             style={{
               background: `${techColors[tech] || '#6C63FF'}15`,
               color: techColors[tech] || '#6C63FF',
@@ -76,7 +81,7 @@ const ProjectCard = ({ project, index }) => (
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-slate-300 glass border border-dark-border hover:border-primary/50 hover:text-white transition-all"
+          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium dark:text-slate-300 text-slate-700 glass border dark:border-dark-border border-slate-200 hover:border-primary/50 dark:hover:text-white hover:text-slate-900 transition-all"
         >
           <FaGithub size={16} /> GitHub
         </motion.a>
@@ -99,3 +104,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

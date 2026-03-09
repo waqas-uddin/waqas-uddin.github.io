@@ -40,12 +40,12 @@ const skillsData = {
 
 const SkillCard = ({ name, Icon, color, delay }) => (
   <motion.div
-    initial={{ opacity: 0, scale: 0.85 }}
-    whileInView={{ opacity: 1, scale: 1 }}
+    initial={{ scale: 0.85 }}
+    whileInView={{ scale: 1 }}
     viewport={{ once: true }}
     transition={{ duration: 0.35, delay, ease: [0.25, 0.1, 0.25, 1] }}
     whileHover={{ y: -8, boxShadow: `0 20px 40px ${color}20` }}
-    className="glass rounded-2xl p-5 flex flex-col items-center gap-3 border border-dark-border hover:border-white/10 transition-all cursor-default group"
+    className="glass rounded-2xl p-5 flex flex-col items-center gap-3 border dark:border-dark-border border-slate-200 hover:border-white/10 transition-all cursor-default group"
   >
     <div
       className="w-14 h-14 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
@@ -53,13 +53,13 @@ const SkillCard = ({ name, Icon, color, delay }) => (
     >
       <Icon size={28} style={{ color }} />
     </div>
-    <span className="text-slate-300 text-sm font-medium text-center">{name}</span>
+    <span className="dark:text-slate-300 text-slate-700 text-sm font-medium text-center">{name}</span>
   </motion.div>
 );
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-dark-card/30">
+    <section id="skills" className="py-24 dark:bg-dark-card/30 bg-slate-100/50">
       <div className="max-w-7xl mx-auto px-6">
         <SectionTitle title="Tech Stack" subtitle="Skills & Expertise" />
 
@@ -67,11 +67,11 @@ const Skills = () => {
           {Object.entries(skillsData).map(([category, skills]) => (
             <div key={category}>
               <motion.h3
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ x: -20 }}
+                whileInView={{ x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-                className="text-lg font-semibold text-slate-400 mb-6 flex items-center gap-3"
+                className="text-lg font-semibold dark:text-slate-400 text-slate-600 mb-6 flex items-center gap-3"
               >
                 <span
                   className="w-8 h-px"
@@ -93,3 +93,4 @@ const Skills = () => {
 };
 
 export default Skills;
+

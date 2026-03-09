@@ -34,6 +34,7 @@ export const projects = [
     tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/alfen-yu/syncx',
     color: '#6C63FF',
+    image: '/projects/project-1.svg',
   },
   {
     id: 2,
@@ -42,6 +43,7 @@ export const projects = [
     tech: ['React', 'Vite', 'TypeScript', 'Spring Boot'],
     github: 'https://github.com/waqas-uddin/Voucher_Mall_ESD',
     color: '#00D4FF',
+    image: '/projects/project-2.svg',
   },
   {
     id: 3,
@@ -50,6 +52,7 @@ export const projects = [
     tech: ['Flutter', 'Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/waqas-uddin/QuickHire',
     color: '#FF6B6B',
+    image: '/projects/project-3.svg',
   },
   {
     id: 4,
@@ -58,6 +61,7 @@ export const projects = [
     tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/waqas-uddin/Music_StreamingApp_MERN',
     color: '#A855F7',
+    image: '/projects/project-4.svg',
   },
   {
     id: 5,
@@ -66,6 +70,7 @@ export const projects = [
     tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
     github: 'https://github.com/waqas-uddin/Text_Editor_MERN',
     color: '#F59E0B',
+    image: '/projects/project-5.svg',
   },
   {
     id: 6,
@@ -74,6 +79,7 @@ export const projects = [
     tech: ['HTML', 'CSS', 'JavaScript'],
     github: 'https://github.com/waqas-uddin/language_translator',
     color: '#10B981',
+    image: '/projects/project-6.svg',
   },
   {
     id: 7,
@@ -82,6 +88,7 @@ export const projects = [
     tech: ['C++'],
     github: 'https://github.com/waqas-uddin/Computer-Shop-Management-System',
     color: '#00599C',
+    image: '/projects/project-7.svg',
   },
 ];
 
@@ -131,3 +138,4 @@ export const navLinks = [
   { name: 'Education', href: '#education' },
   { name: 'Contact', href: '#contact' },
 ];
+

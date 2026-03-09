@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiSun, HiMoon } from 'react-icons/hi';
 import { navLinks } from '../data';
 import { useActiveSection } from '../hooks/useActiveSection';
+import { useTheme } from '../context/useTheme';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +12,7 @@ const Navbar = () => {
   const { scrollYProgress } = useScroll();
   const activeSection = useActiveSection();
   const rafRef = useRef(null);
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +32,7 @@ const Navbar = () => {
   return (
     <>
       {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 z-[100] bg-dark-border">
+      <div className="fixed top-0 left-0 w-full h-1 z-[100] dark:bg-dark-border bg-slate-200">
         <motion.div
           className="h-full origin-left"
           style={{
@@ -64,21 +67,43 @@ const Navbar = () => {
                 className={`text-sm font-medium transition-colors duration-200 ${
                   activeSection === link.href.slice(1)
                     ? 'gradient-text'
-                    : 'text-slate-400 hover:text-white'
+                    : 'dark:text-slate-400 text-slate-600 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
                 {link.name}
               </motion.a>
             ))}
+
+            {/* Theme Toggle */}
+            <motion.button
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.1, rotate: 15 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-10 h-10 rounded-full glass flex items-center justify-center dark:text-slate-400 text-slate-600 dark:hover:text-white hover:text-slate-900 transition-colors border dark:border-dark-border border-slate-200"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <HiSun size={18} /> : <HiMoon size={18} />}
+            </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white p-2"
-          >
-            {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
-          </button>
+          {/* Mobile: Theme Toggle + Menu Button */}
+          <div className="md:hidden flex items-center gap-2">
+            <motion.button
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="w-9 h-9 rounded-full glass flex items-center justify-center dark:text-slate-400 text-slate-600 border dark:border-dark-border border-slate-200"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <HiSun size={16} /> : <HiMoon size={16} />}
+            </motion.button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="dark:text-white text-slate-900 p-2"
+            >
+              {isOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -101,7 +126,7 @@ const Navbar = () => {
                 className={`text-lg font-medium transition-colors ${
                   activeSection === link.href.slice(1)
                     ? 'gradient-text'
-                    : 'text-slate-300 hover:text-white'
+                    : 'dark:text-slate-300 text-slate-700 dark:hover:text-white hover:text-slate-900'
                 }`}
               >
                 {link.name}
@@ -115,3 +140,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -4,8 +4,8 @@ const SectionTitle = ({ title, subtitle }) => {
   return (
     <div className="text-center mb-16">
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 20 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         className="text-primary text-sm font-semibold tracking-widest uppercase mb-3"
@@ -13,11 +13,11 @@ const SectionTitle = ({ title, subtitle }) => {
         {subtitle}
       </motion.p>
       <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 20 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="text-4xl md:text-5xl font-bold text-white"
+        className="text-4xl md:text-5xl font-bold dark:text-white text-slate-900"
       >
         {title}
       </motion.h2>
@@ -34,3 +34,4 @@ const SectionTitle = ({ title, subtitle }) => {
 };
 
 export default SectionTitle;
+
