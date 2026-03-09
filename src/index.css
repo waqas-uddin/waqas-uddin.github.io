@@ -64,12 +64,6 @@ body {
   }
 }
 
-/* Promote scroll-animated elements to their own compositor layer */
-[data-framer-motion],
-.framer-motion-element {
-  will-change: transform, opacity;
-}
-
 /* Ensure backdrop-filter elements are GPU-composited */
 .glass {
   transform: translateZ(0);

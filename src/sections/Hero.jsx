@@ -1,9 +1,7 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiDownload, HiArrowRight } from 'react-icons/hi';
-import Particles from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
 
 const TYPING_TEXTS = ['Full Stack Developer', 'React Developer', 'Node.js Developer'];
 
@@ -11,10 +9,6 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const initParticles = useCallback(async (engine) => {
-    await loadSlim(engine);
-  }, []);
 
   useEffect(() => {
     const currentText = TYPING_TEXTS[textIndex];
@@ -40,48 +34,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Particles Background */}
-      <Particles
-        id="tsparticles"
-        init={initParticles}
-        options={{
-          background: { color: { value: 'transparent' } },
-          fpsLimit: 120,
-          interactivity: {
-            events: {
-              onHover: { enable: true, mode: 'repulse' },
-            },
-            modes: {
-              repulse: { distance: 100, duration: 0.4 },
-            },
-          },
-          particles: {
-            color: { value: ['#6C63FF', '#00D4FF', '#FF6B6B'] },
-            links: {
-              color: '#6C63FF',
-              distance: 150,
-              enable: true,
-              opacity: 0.2,
-              width: 1,
-            },
-            move: {
-              enable: true,
-              speed: 1.2,
-              direction: 'none',
-              random: true,
-              straight: false,
-              outModes: { default: 'bounce' },
-            },
-            number: { density: { enable: true, area: 800 }, value: 50 },
-            opacity: { value: 0.3 },
-            shape: { type: 'circle' },
-            size: { value: { min: 1, max: 3 } },
-          },
-          detectRetina: true,
-        }}
-        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}
-      />
-
       {/* Gradient Orbs */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/20 rounded-full blur-[120px] pointer-events-none" />
