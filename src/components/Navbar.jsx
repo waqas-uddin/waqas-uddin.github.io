@@ -40,9 +40,6 @@ const Navbar = () => {
       </div>
 
       <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
         className={`fixed top-1 left-0 w-full z-50 transition-all duration-300 ${
           scrolled ? 'py-3 glass shadow-2xl shadow-primary/5' : 'py-5 bg-transparent'
         }`}

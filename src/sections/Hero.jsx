@@ -41,8 +41,8 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-slate-300 mb-8"
         >
@@ -51,8 +51,8 @@ const Hero = () => {
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-6xl md:text-8xl font-extrabold text-white mb-4 leading-tight"
         >
@@ -61,8 +61,8 @@ const Hero = () => {
         </motion.h1>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-2xl md:text-4xl font-bold mb-6 h-12"
         >
@@ -71,8 +71,8 @@ const Hero = () => {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10"
         >
@@ -81,8 +81,8 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex flex-wrap items-center justify-center gap-4 mb-12"
         >
@@ -116,8 +116,8 @@ const Hero = () => {
 
         {/* Social Links */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.5, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="flex items-center justify-center gap-5"
         >
@@ -141,10 +141,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
+      <div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="text-xs text-slate-500">Scroll down</span>
@@ -153,7 +150,7 @@ const Hero = () => {
           transition={{ repeat: Infinity, duration: 1.5 }}
           className="w-px h-10 bg-gradient-to-b from-primary to-transparent"
         />
-      </motion.div>
+      </div>
     </section>
   );
 };
