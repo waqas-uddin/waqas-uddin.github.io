@@ -29,7 +29,7 @@ const Experience = () => {
               >
                 {/* Timeline dot */}
                 <motion.div
-                  initial={{ scale: 0 }}
+                  initial={{ scale: 0.5 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.1 + 0.15, ease: [0.25, 0.1, 0.25, 1] }}
