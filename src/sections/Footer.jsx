@@ -6,8 +6,8 @@ const Footer = () => {
     <footer className="border-t dark:border-dark-border border-slate-200 py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ y: 10 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           className="dark:text-slate-500 text-slate-500 text-sm flex items-center gap-1"
         >
