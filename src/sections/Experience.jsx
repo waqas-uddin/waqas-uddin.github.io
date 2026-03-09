@@ -45,7 +45,7 @@ const Experience = () => {
                 {/* Card */}
                 <motion.div
                   whileHover={{ x: 5, boxShadow: `0 0 30px ${exp.color}15` }}
-                  className="glass rounded-2xl p-6 dark:border-dark-border border-slate-200 hover:border-primary/20 transition-all border"
+                  className="glass rounded-2xl p-6 border dark:border-dark-border border-slate-200 hover:border-primary/20 transition-all"
                 >
                   <div className="flex flex-wrap justify-between items-start gap-2 mb-4">
                     <div>

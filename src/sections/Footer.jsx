@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="dark:border-dark-border border-slate-200 border-t py-10 px-6">
+    <footer className="border-t dark:border-dark-border border-slate-200 py-10 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <motion.p
           initial={{ opacity: 0 }}

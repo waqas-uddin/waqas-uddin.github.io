@@ -26,7 +26,7 @@ const ProjectCard = ({ project, index }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
     whileHover={{ y: -8 }}
-    className="glass rounded-2xl overflow-hidden dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all group border"
+    className="glass rounded-2xl overflow-hidden border dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all group"
   >
     {/* Project Image */}
     <div className="relative overflow-hidden" style={{ height: '180px' }}>
@@ -81,7 +81,7 @@ const ProjectCard = ({ project, index }) => (
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium dark:text-slate-300 text-slate-700 glass dark:border-dark-border border-slate-200 hover:border-primary/50 dark:hover:text-white hover:text-slate-900 transition-all border"
+          className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium dark:text-slate-300 text-slate-700 glass border dark:border-dark-border border-slate-200 hover:border-primary/50 dark:hover:text-white hover:text-slate-900 transition-all"
         >
           <FaGithub size={16} /> GitHub
         </motion.a>

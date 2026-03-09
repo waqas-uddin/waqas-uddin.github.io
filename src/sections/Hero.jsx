@@ -108,7 +108,7 @@ const Hero = () => {
             download
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold dark:text-slate-300 text-slate-600 text-base dark:border-dark-border border-slate-200 hover:border-slate-500 transition-colors glass border"
+            className="flex items-center gap-2 px-8 py-3 rounded-xl font-semibold dark:text-slate-300 text-slate-600 text-base glass border dark:border-dark-border border-slate-200 hover:border-slate-500 transition-colors"
           >
             <HiDownload /> Resume
           </motion.a>
@@ -132,7 +132,7 @@ const Hero = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, y: -4 }}
               whileTap={{ scale: 0.9 }}
-              className="w-12 h-12 rounded-full glass flex items-center justify-center dark:text-slate-400 text-slate-500 dark:hover:text-white hover:text-slate-900 transition-colors dark:border-dark-border border-slate-200 hover:border-primary/50 border"
+              className="w-12 h-12 rounded-full glass flex items-center justify-center dark:text-slate-400 text-slate-500 dark:hover:text-white hover:text-slate-900 transition-colors border dark:border-dark-border border-slate-200 hover:border-primary/50"
             >
               <Icon size={20} />
             </motion.a>

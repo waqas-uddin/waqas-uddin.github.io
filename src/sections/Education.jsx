@@ -18,7 +18,7 @@ const Education = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={{ y: -5, boxShadow: `0 20px 60px ${edu.color}15` }}
-            className="glass rounded-2xl p-8 dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all border"
+            className="glass rounded-2xl p-8 border dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all"
           >
             <div className="flex items-start gap-6">
               <div

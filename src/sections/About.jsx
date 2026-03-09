@@ -60,7 +60,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
               whileHover={{ x: 8, boxShadow: '0 0 30px rgba(108,99,255,0.15)' }}
-              className="glass rounded-2xl p-6 flex items-center gap-5 dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all cursor-default border"
+              className="glass rounded-2xl p-6 flex items-center gap-5 border dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all cursor-default"
             >
               <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"

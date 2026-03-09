@@ -75,7 +75,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ x: 8 }}
-                className="flex items-center gap-4 glass rounded-xl p-4 dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all group border"
+                className="flex items-center gap-4 glass rounded-xl p-4 border dark:border-dark-border border-slate-200 hover:border-primary/30 transition-all group"
               >
                 <div
                   className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -100,7 +100,7 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 dark:border-dark-border border-slate-200 border">
+          <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 border dark:border-dark-border border-slate-200">
             <div className="space-y-5">
               <div>
                 <label className="block text-sm font-medium dark:text-slate-400 text-slate-600 mb-2">Name</label>
@@ -111,7 +111,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Your name"
-                  className="w-full dark:bg-dark-card/50 bg-white/50 dark:border-dark-border border-slate-200 rounded-xl px-4 py-3 dark:text-white text-slate-900 dark:placeholder-slate-600 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-colors text-sm border"
+                  className="w-full dark:bg-dark-card/50 bg-white/50 border dark:border-dark-border border-slate-200 rounded-xl px-4 py-3 dark:text-white text-slate-900 dark:placeholder-slate-600 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-colors text-sm"
                 />
               </div>
               <div>
@@ -123,7 +123,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="your@email.com"
-                  className="w-full dark:bg-dark-card/50 bg-white/50 dark:border-dark-border border-slate-200 rounded-xl px-4 py-3 dark:text-white text-slate-900 dark:placeholder-slate-600 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-colors text-sm border"
+                  className="w-full dark:bg-dark-card/50 bg-white/50 border dark:border-dark-border border-slate-200 rounded-xl px-4 py-3 dark:text-white text-slate-900 dark:placeholder-slate-600 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-colors text-sm"
                 />
               </div>
               <div>
@@ -135,7 +135,7 @@ const Contact = () => {
                   required
                   rows={5}
                   placeholder="Tell me about your project or say hello..."
-                  className="w-full dark:bg-dark-card/50 bg-white/50 dark:border-dark-border border-slate-200 rounded-xl px-4 py-3 dark:text-white text-slate-900 dark:placeholder-slate-600 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-colors resize-none text-sm border"
+                  className="w-full dark:bg-dark-card/50 bg-white/50 border dark:border-dark-border border-slate-200 rounded-xl px-4 py-3 dark:text-white text-slate-900 dark:placeholder-slate-600 placeholder-slate-400 focus:outline-none focus:border-primary/50 transition-colors resize-none text-sm"
                 />
               </div>
               <motion.button

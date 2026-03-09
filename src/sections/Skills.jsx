@@ -45,7 +45,7 @@ const SkillCard = ({ name, Icon, color, delay }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.35, delay, ease: [0.25, 0.1, 0.25, 1] }}
     whileHover={{ y: -8, boxShadow: `0 20px 40px ${color}20` }}
-    className="glass rounded-2xl p-5 flex flex-col items-center gap-3 dark:border-dark-border border-slate-200 hover:border-white/10 transition-all cursor-default group border"
+    className="glass rounded-2xl p-5 flex flex-col items-center gap-3 border dark:border-dark-border border-slate-200 hover:border-white/10 transition-all cursor-default group"
   >
     <div
       className="w-14 h-14 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110"
