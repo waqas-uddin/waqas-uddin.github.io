@@ -66,17 +66,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <motion.a
-            href="mailto:wa17555@gmail.com"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block px-5 py-2 rounded-lg text-sm font-semibold text-white"
-            style={{ background: 'linear-gradient(135deg, #6C63FF, #00D4FF)' }}
-          >
-            Hire Me
-          </motion.a>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
