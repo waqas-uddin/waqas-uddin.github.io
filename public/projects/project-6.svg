@@ -1,67 +1,99 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="340" viewBox="0 0 600 340">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0D0D1A;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D1A0D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D1A13;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="accent6" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <linearGradient id="btn6" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
   </defs>
   <!-- Background -->
-  <rect width="600" height="340" fill="url(#bg)" rx="12"/>
-  <!-- Grid pattern -->
-  <g opacity="0.05" stroke="#ffffff" stroke-width="0.5">
-    <line x1="0" y1="40" x2="600" y2="40"/>
-    <line x1="0" y1="80" x2="600" y2="80"/>
-    <line x1="0" y1="120" x2="600" y2="120"/>
-    <line x1="0" y1="160" x2="600" y2="160"/>
-    <line x1="0" y1="200" x2="600" y2="200"/>
-    <line x1="0" y1="240" x2="600" y2="240"/>
-    <line x1="0" y1="280" x2="600" y2="280"/>
-    <line x1="0" y1="320" x2="600" y2="320"/>
-    <line x1="60" y1="0" x2="60" y2="340"/>
-    <line x1="120" y1="0" x2="120" y2="340"/>
-    <line x1="180" y1="0" x2="180" y2="340"/>
-    <line x1="240" y1="0" x2="240" y2="340"/>
-    <line x1="300" y1="0" x2="300" y2="340"/>
-    <line x1="360" y1="0" x2="360" y2="340"/>
-    <line x1="420" y1="0" x2="420" y2="340"/>
-    <line x1="480" y1="0" x2="480" y2="340"/>
-    <line x1="540" y1="0" x2="540" y2="340"/>
-  </g>
-  <!-- Glow orb left -->
-  <circle cx="120" cy="170" r="100" fill="#10B981" opacity="0.08"/>
-  <!-- Glow orb right -->
-  <circle cx="480" cy="170" r="80" fill="#059669" opacity="0.08"/>
-  <!-- Top bar accent -->
-  <rect x="0" y="0" width="600" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Browser chrome mockup -->
-  <rect x="40" y="40" width="520" height="260" fill="rgba(255,255,255,0.03)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.3"/>
-  <rect x="40" y="40" width="520" height="28" fill="rgba(255,255,255,0.05)" rx="8"/>
-  <circle cx="62" cy="54" r="5" fill="#FF5F57"/>
-  <circle cx="80" cy="54" r="5" fill="#FEBC2E"/>
-  <circle cx="98" cy="54" r="5" fill="#28C840"/>
-  <!-- URL bar -->
-  <rect x="120" y="46" width="300" height="16" fill="rgba(255,255,255,0.05)" rx="8"/>
-  <text x="270" y="58" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="monospace" font-size="8">github.com/waqas-uddin/language-translator</text>
-  <!-- Content area icon -->
-  <text x="300" y="160" text-anchor="middle" font-size="52" filter="url(#glow)">🌐</text>
-  <!-- Title -->
-  <text x="300" y="205" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700">Language Translator</text>
-  <!-- Tech badge -->
-  <rect x="230" y="218" width="140" height="24" fill="#10B981" opacity="0.2" rx="12" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.5"/>
-  <text x="300" y="234" text-anchor="middle" fill="#10B981" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500">HTML + CSS + JS</text>
-  <!-- Decorative dots -->
-  <circle cx="490" cy="310" r="3" fill="#10B981" opacity="0.5"/>
-  <circle cx="505" cy="310" r="3" fill="#059669" opacity="0.5"/>
-  <circle cx="520" cy="310" r="3" fill="#10B981" opacity="0.5"/>
+  <rect width="600" height="340" fill="url(#bg6)" rx="12"/>
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="600" height="3" fill="url(#accent6)" rx="2"/>
+  <!-- Header -->
+  <rect x="0" y="3" width="600" height="44" fill="rgba(16,185,129,0.06)"/>
+  <text x="300" y="20" text-anchor="middle" fill="#10B981" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700">&#x1F310; Language Translator</text>
+  <text x="300" y="36" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="Inter, system-ui, sans-serif" font-size="9">Translate text between 50+ languages instantly</text>
+
+  <!-- Source language selector -->
+  <rect x="20" y="58" width="170" height="24" fill="rgba(16,185,129,0.1)" rx="6" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.4"/>
+  <text x="35" y="74" fill="white" font-family="Inter, system-ui, sans-serif" font-size="10">&#x1F1FA;&#x1F1F8; English (auto-detected)</text>
+  <text x="178" y="74" fill="#10B981" font-family="Inter, system-ui, sans-serif" font-size="10">&#x25BC;</text>
+
+  <!-- Swap arrow -->
+  <rect x="198" y="58" width="40" height="24" fill="rgba(16,185,129,0.15)" rx="6"/>
+  <text x="218" y="74" text-anchor="middle" fill="#10B981" font-family="Inter, system-ui, sans-serif" font-size="14">&#x21C4;</text>
+
+  <!-- Target language selector -->
+  <rect x="246" y="58" width="155" height="24" fill="rgba(16,185,129,0.1)" rx="6" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.4"/>
+  <text x="261" y="74" fill="white" font-family="Inter, system-ui, sans-serif" font-size="10">&#x1F1FA;&#x1F1E6; Urdu</text>
+  <text x="389" y="74" fill="#10B981" font-family="Inter, system-ui, sans-serif" font-size="10">&#x25BC;</text>
+
+  <!-- Source text box -->
+  <rect x="20" y="90" width="270" height="140" fill="rgba(0,0,0,0.3)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="34" y="110" fill="rgba(255,255,255,0.8)" font-family="Inter, system-ui, sans-serif" font-size="11">The quick brown fox jumps</text>
+  <text x="34" y="126" fill="rgba(255,255,255,0.8)" font-family="Inter, system-ui, sans-serif" font-size="11">over the lazy dog.</text>
+  <!-- Cursor -->
+  <rect x="34" y="130" width="1.5" height="12" fill="#10B981" opacity="0.8"/>
+  <!-- Word count -->
+  <text x="276" y="218" text-anchor="end" fill="rgba(255,255,255,0.2)" font-family="Inter, system-ui, sans-serif" font-size="8">9 / 5000</text>
+  <!-- Copy btn -->
+  <rect x="26" y="214" width="45" height="14" fill="rgba(255,255,255,0.06)" rx="5"/>
+  <text x="48" y="224" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Inter, system-ui, sans-serif" font-size="8">Copy</text>
+  <!-- Clear btn -->
+  <rect x="76" y="214" width="45" height="14" fill="rgba(255,255,255,0.04)" rx="5"/>
+  <text x="99" y="224" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="Inter, system-ui, sans-serif" font-size="8">Clear</text>
+
+  <!-- Translate button -->
+  <rect x="298" y="90" width="305" height="140" fill="rgba(16,185,129,0.05)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.3"/>
+  <!-- Translated text (Urdu right-to-left appearance) -->
+  <text x="591" y="110" text-anchor="end" fill="rgba(16,185,129,0.9)" font-family="Inter, system-ui, sans-serif" font-size="11">تیز بھوری لومڑی چھلانگ لگاتی</text>
+  <text x="591" y="128" text-anchor="end" fill="rgba(16,185,129,0.9)" font-family="Inter, system-ui, sans-serif" font-size="11">ہے سست کتے کے اوپر سے۔</text>
+  <!-- Translation loading/done indicator -->
+  <rect x="304" y="208" width="60" height="14" fill="rgba(16,185,129,0.12)" rx="5"/>
+  <text x="334" y="219" text-anchor="middle" fill="#10B981" font-family="Inter, system-ui, sans-serif" font-size="8">&#x2714; Translated</text>
+  <rect x="540" y="208" width="55" height="14" fill="rgba(255,255,255,0.05)" rx="5"/>
+  <text x="567" y="219" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="Inter, system-ui, sans-serif" font-size="8">Copy</text>
+
+  <!-- Translate button -->
+  <rect x="20" y="242" width="270" height="32" fill="url(#btn6)" rx="8"/>
+  <text x="155" y="262" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600">&#x27A1; Translate</text>
+
+  <!-- Language detection badge -->
+  <rect x="298" y="242" width="160" height="32" fill="rgba(16,185,129,0.08)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="378" y="256" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter, system-ui, sans-serif" font-size="8">Language Detection</text>
+  <text x="378" y="268" text-anchor="middle" fill="#10B981" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">&#x25CF; English (99.8% confidence)</text>
+
+  <!-- Listen button -->
+  <rect x="466" y="242" width="136" height="32" fill="rgba(16,185,129,0.06)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.25"/>
+  <text x="534" y="262" text-anchor="middle" fill="rgba(16,185,129,0.7)" font-family="Inter, system-ui, sans-serif" font-size="10">&#x1F50A; Listen</text>
+
+  <!-- Language grid (bottom) -->
+  <text x="20" y="292" fill="rgba(255,255,255,0.3)" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600">POPULAR LANGUAGES</text>
+  <rect x="20" y="298" width="60" height="18" fill="rgba(16,185,129,0.08)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.2"/>
+  <text x="50" y="311" text-anchor="middle" fill="rgba(16,185,129,0.7)" font-family="Inter, system-ui, sans-serif" font-size="8">Spanish</text>
+  <rect x="88" y="298" width="60" height="18" fill="rgba(16,185,129,0.08)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.2"/>
+  <text x="118" y="311" text-anchor="middle" fill="rgba(16,185,129,0.7)" font-family="Inter, system-ui, sans-serif" font-size="8">French</text>
+  <rect x="156" y="298" width="60" height="18" fill="rgba(16,185,129,0.08)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.2"/>
+  <text x="186" y="311" text-anchor="middle" fill="rgba(16,185,129,0.7)" font-family="Inter, system-ui, sans-serif" font-size="8">Arabic</text>
+  <rect x="224" y="298" width="60" height="18" fill="rgba(16,185,129,0.08)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.2"/>
+  <text x="254" y="311" text-anchor="middle" fill="rgba(16,185,129,0.7)" font-family="Inter, system-ui, sans-serif" font-size="8">Chinese</text>
+  <rect x="292" y="298" width="60" height="18" fill="rgba(16,185,129,0.12)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.4"/>
+  <text x="322" y="311" text-anchor="middle" fill="#10B981" font-family="Inter, system-ui, sans-serif" font-size="8">Urdu</text>
+  <rect x="360" y="298" width="60" height="18" fill="rgba(16,185,129,0.08)" rx="8" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.2"/>
+  <text x="390" y="311" text-anchor="middle" fill="rgba(16,185,129,0.7)" font-family="Inter, system-ui, sans-serif" font-size="8">German</text>
+  <!-- Tech badges -->
+  <rect x="450" y="298" width="40" height="18" fill="rgba(227,79,38,0.12)" rx="8" stroke="rgba(227,79,38,0.3)" stroke-width="0.5"/>
+  <text x="470" y="311" text-anchor="middle" fill="#E34F26" font-family="Inter, system-ui, sans-serif" font-size="8">HTML</text>
+  <rect x="496" y="298" width="35" height="18" fill="rgba(21,114,182,0.12)" rx="8" stroke="rgba(21,114,182,0.3)" stroke-width="0.5"/>
+  <text x="514" y="311" text-anchor="middle" fill="#1572B6" font-family="Inter, system-ui, sans-serif" font-size="8">CSS</text>
+  <rect x="537" y="298" width="44" height="18" fill="rgba(247,223,30,0.12)" rx="8" stroke="rgba(247,223,30,0.3)" stroke-width="0.5"/>
+  <text x="559" y="311" text-anchor="middle" fill="#F7DF1E" font-family="Inter, system-ui, sans-serif" font-size="8">JS</text>
 </svg>

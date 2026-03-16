@@ -1,67 +1,107 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="600" height="340" viewBox="0 0 600 340">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0D0D1A;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#8B83FF;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <linearGradient id="btn1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B83FF;stop-opacity:1" />
+    </linearGradient>
   </defs>
   <!-- Background -->
-  <rect width="600" height="340" fill="url(#bg)" rx="12"/>
-  <!-- Grid pattern -->
-  <g opacity="0.05" stroke="#ffffff" stroke-width="0.5">
-    <line x1="0" y1="40" x2="600" y2="40"/>
-    <line x1="0" y1="80" x2="600" y2="80"/>
-    <line x1="0" y1="120" x2="600" y2="120"/>
-    <line x1="0" y1="160" x2="600" y2="160"/>
-    <line x1="0" y1="200" x2="600" y2="200"/>
-    <line x1="0" y1="240" x2="600" y2="240"/>
-    <line x1="0" y1="280" x2="600" y2="280"/>
-    <line x1="0" y1="320" x2="600" y2="320"/>
-    <line x1="60" y1="0" x2="60" y2="340"/>
-    <line x1="120" y1="0" x2="120" y2="340"/>
-    <line x1="180" y1="0" x2="180" y2="340"/>
-    <line x1="240" y1="0" x2="240" y2="340"/>
-    <line x1="300" y1="0" x2="300" y2="340"/>
-    <line x1="360" y1="0" x2="360" y2="340"/>
-    <line x1="420" y1="0" x2="420" y2="340"/>
-    <line x1="480" y1="0" x2="480" y2="340"/>
-    <line x1="540" y1="0" x2="540" y2="340"/>
-  </g>
-  <!-- Glow orb left -->
-  <circle cx="120" cy="170" r="100" fill="#6C63FF" opacity="0.08"/>
-  <!-- Glow orb right -->
-  <circle cx="480" cy="170" r="80" fill="#8B83FF" opacity="0.08"/>
-  <!-- Top bar accent -->
-  <rect x="0" y="0" width="600" height="3" fill="url(#accent)" rx="2"/>
-  <!-- Browser chrome mockup -->
-  <rect x="40" y="40" width="520" height="260" fill="rgba(255,255,255,0.03)" rx="8" stroke="#6C63FF" stroke-width="0.5" stroke-opacity="0.3"/>
-  <rect x="40" y="40" width="520" height="28" fill="rgba(255,255,255,0.05)" rx="8"/>
-  <circle cx="62" cy="54" r="5" fill="#FF5F57"/>
-  <circle cx="80" cy="54" r="5" fill="#FEBC2E"/>
-  <circle cx="98" cy="54" r="5" fill="#28C840"/>
-  <!-- URL bar -->
-  <rect x="120" y="46" width="300" height="16" fill="rgba(255,255,255,0.05)" rx="8"/>
-  <text x="270" y="58" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="monospace" font-size="8">github.com/waqas-uddin/syncx</text>
-  <!-- Content area icon -->
-  <text x="300" y="160" text-anchor="middle" font-size="52" filter="url(#glow)">🛒</text>
-  <!-- Title -->
-  <text x="300" y="205" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="700">SyncX Store</text>
-  <!-- Tech badge -->
-  <rect x="230" y="218" width="140" height="24" fill="#6C63FF" opacity="0.2" rx="12" stroke="#6C63FF" stroke-width="0.5" stroke-opacity="0.5"/>
-  <text x="300" y="234" text-anchor="middle" fill="#6C63FF" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="500">React + Node.js</text>
-  <!-- Decorative dots -->
-  <circle cx="490" cy="310" r="3" fill="#6C63FF" opacity="0.5"/>
-  <circle cx="505" cy="310" r="3" fill="#8B83FF" opacity="0.5"/>
-  <circle cx="520" cy="310" r="3" fill="#6C63FF" opacity="0.5"/>
+  <rect width="600" height="340" fill="url(#bg1)" rx="12"/>
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="600" height="3" fill="url(#accent1)" rx="2"/>
+  <!-- Navbar -->
+  <rect x="0" y="3" width="600" height="36" fill="rgba(255,255,255,0.04)"/>
+  <text x="30" y="26" fill="#6C63FF" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700">SyncX</text>
+  <rect x="380" y="12" width="60" height="18" fill="rgba(255,255,255,0.07)" rx="4"/>
+  <text x="410" y="24" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter, system-ui, sans-serif" font-size="9">Products</text>
+  <rect x="450" y="12" width="50" height="18" fill="rgba(255,255,255,0.07)" rx="4"/>
+  <text x="475" y="24" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Inter, system-ui, sans-serif" font-size="9">Orders</text>
+  <!-- Cart icon area -->
+  <rect x="515" y="11" width="28" height="19" fill="#6C63FF" opacity="0.25" rx="4"/>
+  <text x="529" y="24" text-anchor="middle" fill="#8B83FF" font-family="Inter, system-ui, sans-serif" font-size="11">Cart 3</text>
+
+  <!-- Product grid cards -->
+  <!-- Card 1 -->
+  <rect x="22" y="50" width="118" height="130" fill="rgba(255,255,255,0.05)" rx="8" stroke="#6C63FF" stroke-width="0.5" stroke-opacity="0.4"/>
+  <rect x="22" y="50" width="118" height="72" fill="rgba(108,99,255,0.12)" rx="8"/>
+  <text x="81" y="95" text-anchor="middle" font-size="28">&#x1F5A5;&#xFE0F;</text>
+  <text x="81" y="138" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">Gaming Monitor</text>
+  <text x="81" y="152" text-anchor="middle" fill="#6C63FF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700">$299.99</text>
+  <rect x="34" y="160" width="94" height="14" fill="url(#btn1)" rx="4" opacity="0.85"/>
+  <text x="81" y="171" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="8">Add to Cart</text>
+
+  <!-- Card 2 -->
+  <rect x="152" y="50" width="118" height="130" fill="rgba(255,255,255,0.05)" rx="8" stroke="#6C63FF" stroke-width="0.5" stroke-opacity="0.4"/>
+  <rect x="152" y="50" width="118" height="72" fill="rgba(108,99,255,0.12)" rx="8"/>
+  <text x="211" y="95" text-anchor="middle" font-size="28">&#x2328;&#xFE0F;</text>
+  <text x="211" y="138" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">Mech Keyboard</text>
+  <text x="211" y="152" text-anchor="middle" fill="#6C63FF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700">$129.00</text>
+  <rect x="164" y="160" width="94" height="14" fill="url(#btn1)" rx="4" opacity="0.85"/>
+  <text x="211" y="171" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="8">Add to Cart</text>
+
+  <!-- Card 3 -->
+  <rect x="282" y="50" width="118" height="130" fill="rgba(255,255,255,0.05)" rx="8" stroke="#8B83FF" stroke-width="0.8" stroke-opacity="0.7"/>
+  <rect x="282" y="50" width="118" height="72" fill="rgba(108,99,255,0.18)" rx="8"/>
+  <rect x="282" y="50" width="50" height="14" fill="#6C63FF" rx="4" opacity="0.9"/>
+  <text x="307" y="60" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="700">SALE</text>
+  <text x="341" y="95" text-anchor="middle" font-size="28">&#x1F5B1;&#xFE0F;</text>
+  <text x="341" y="138" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="600">Gaming Mouse</text>
+  <text x="341" y="152" text-anchor="middle" fill="#6C63FF" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700">$59.99</text>
+  <rect x="294" y="160" width="94" height="14" fill="url(#btn1)" rx="4" opacity="0.85"/>
+  <text x="341" y="171" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="8">Add to Cart</text>
+
+  <!-- Cart / Order panel (right side) -->
+  <rect x="420" y="50" width="162" height="240" fill="rgba(255,255,255,0.04)" rx="8" stroke="#6C63FF" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="501" y="70" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">Order Summary</text>
+  <line x1="432" y1="78" x2="570" y2="78" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="432" y="95" fill="rgba(255,255,255,0.5)" font-family="Inter, system-ui, sans-serif" font-size="9">Gaming Monitor</text>
+  <text x="570" y="95" text-anchor="end" fill="rgba(255,255,255,0.7)" font-family="Inter, system-ui, sans-serif" font-size="9">$299.99</text>
+  <text x="432" y="112" fill="rgba(255,255,255,0.5)" font-family="Inter, system-ui, sans-serif" font-size="9">Mech Keyboard</text>
+  <text x="570" y="112" text-anchor="end" fill="rgba(255,255,255,0.7)" font-family="Inter, system-ui, sans-serif" font-size="9">$129.00</text>
+  <text x="432" y="129" fill="rgba(255,255,255,0.5)" font-family="Inter, system-ui, sans-serif" font-size="9">Gaming Mouse</text>
+  <text x="570" y="129" text-anchor="end" fill="rgba(255,255,255,0.7)" font-family="Inter, system-ui, sans-serif" font-size="9">$59.99</text>
+  <line x1="432" y1="138" x2="570" y2="138" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="432" y="153" fill="rgba(255,255,255,0.8)" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">Total</text>
+  <text x="570" y="153" text-anchor="end" fill="#8B83FF" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">$488.98</text>
+  <!-- JWT Auth badge -->
+  <rect x="432" y="162" width="60" height="16" fill="#6C63FF" opacity="0.2" rx="8" stroke="#6C63FF" stroke-width="0.5"/>
+  <text x="462" y="174" text-anchor="middle" fill="#8B83FF" font-family="Inter, system-ui, sans-serif" font-size="8">JWT Auth</text>
+  <rect x="500" y="162" width="60" height="16" fill="#6C63FF" opacity="0.2" rx="8" stroke="#6C63FF" stroke-width="0.5"/>
+  <text x="530" y="174" text-anchor="middle" fill="#8B83FF" font-family="Inter, system-ui, sans-serif" font-size="8">RBAC</text>
+  <rect x="432" y="202" width="126" height="24" fill="url(#btn1)" rx="6"/>
+  <text x="495" y="218" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">Checkout</text>
+
+  <!-- Bottom product row -->
+  <rect x="22" y="192" width="118" height="88" fill="rgba(255,255,255,0.04)" rx="8" stroke="#6C63FF" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="40" y="210" fill="rgba(255,255,255,0.4)" font-family="Inter, system-ui, sans-serif" font-size="8">Product Management</text>
+  <rect x="30" y="216" width="100" height="8" fill="rgba(108,99,255,0.3)" rx="2"/>
+  <rect x="30" y="228" width="75" height="8" fill="rgba(108,99,255,0.2)" rx="2"/>
+  <rect x="30" y="240" width="88" height="8" fill="rgba(108,99,255,0.15)" rx="2"/>
+  <rect x="30" y="256" width="50" height="14" fill="#6C63FF" opacity="0.7" rx="4"/>
+  <text x="55" y="267" text-anchor="middle" fill="white" font-family="Inter, system-ui, sans-serif" font-size="8">+ Add Item</text>
+
+  <rect x="152" y="192" width="118" height="88" fill="rgba(255,255,255,0.04)" rx="8" stroke="#6C63FF" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="170" y="210" fill="rgba(255,255,255,0.4)" font-family="Inter, system-ui, sans-serif" font-size="8">REST API</text>
+  <text x="170" y="225" fill="rgba(108,99,255,0.8)" font-family="monospace" font-size="8">GET /products</text>
+  <text x="170" y="237" fill="rgba(108,99,255,0.6)" font-family="monospace" font-size="8">POST /cart/add</text>
+  <text x="170" y="249" fill="rgba(108,99,255,0.6)" font-family="monospace" font-size="8">PUT /orders/:id</text>
+  <text x="170" y="261" fill="rgba(108,99,255,0.4)" font-family="monospace" font-size="8">DELETE /cart/:id</text>
+
+  <!-- Tech stack labels -->
+  <rect x="22" y="292" width="48" height="15" fill="rgba(97,218,251,0.12)" rx="7" stroke="rgba(97,218,251,0.3)" stroke-width="0.5"/>
+  <text x="46" y="303" text-anchor="middle" fill="#61DAFB" font-family="Inter, system-ui, sans-serif" font-size="8">React</text>
+  <rect x="78" y="292" width="60" height="15" fill="rgba(51,153,51,0.12)" rx="7" stroke="rgba(51,153,51,0.3)" stroke-width="0.5"/>
+  <text x="108" y="303" text-anchor="middle" fill="#68A063" font-family="Inter, system-ui, sans-serif" font-size="8">Node.js</text>
+  <rect x="146" y="292" width="63" height="15" fill="rgba(71,162,72,0.12)" rx="7" stroke="rgba(71,162,72,0.3)" stroke-width="0.5"/>
+  <text x="177" y="303" text-anchor="middle" fill="#47A248" font-family="Inter, system-ui, sans-serif" font-size="8">MongoDB</text>
+  <rect x="217" y="292" width="68" height="15" fill="rgba(153,153,153,0.12)" rx="7" stroke="rgba(153,153,153,0.3)" stroke-width="0.5"/>
+  <text x="251" y="303" text-anchor="middle" fill="#999" font-family="Inter, system-ui, sans-serif" font-size="8">Express.js</text>
 </svg>
