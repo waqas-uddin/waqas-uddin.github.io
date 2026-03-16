@@ -1,9 +1,24 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { HiArrowRight } from 'react-icons/hi';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
+
+// EmailJS configuration — set these in your .env file:
+// REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+// REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+// REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+//
+// To get these values:
+// 1. Create a free account at https://www.emailjs.com/
+// 2. Add an Email Service (e.g. Gmail) and note your Service ID
+// 3. Create an Email Template using variables: {{from_name}}, {{from_email}}, {{message}}
+// 4. Copy your Public Key from Account > API Keys
+const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || '';
+const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || '';
+const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || '';
 
 const contactInfo = [
   {
@@ -31,17 +46,34 @@ const contactInfo = [
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'sent' | 'error'
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormData({ name: '', email: '', message: '' });
+    setStatus('sending');
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus('sent');
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (error) {
+      console.error('Email send failed:', error);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -140,12 +172,21 @@ const Contact = () => {
               </div>
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(108,99,255,0.4)' }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-3.5 rounded-xl font-semibold text-white transition-all"
-                style={{ background: submitted ? '#22C55E' : 'linear-gradient(135deg, #6C63FF, #00D4FF)' }}
+                disabled={status === 'sending'}
+                whileHover={status === 'idle' ? { scale: 1.02, boxShadow: '0 0 30px rgba(108,99,255,0.4)' } : {}}
+                whileTap={status === 'idle' ? { scale: 0.98 } : {}}
+                className="w-full py-3.5 rounded-xl font-semibold text-white transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                style={{
+                  background:
+                    status === 'sent' ? '#22C55E'
+                    : status === 'error' ? '#EF4444'
+                    : 'linear-gradient(135deg, #6C63FF, #00D4FF)',
+                }}
               >
-                {submitted ? '✓ Message Sent!' : 'Send Message'}
+                {status === 'sending' && '⏳ Sending...'}
+                {status === 'sent' && '✓ Message Sent!'}
+                {status === 'error' && '✗ Failed — Please try again'}
+                {status === 'idle' && 'Send Message'}
               </motion.button>
             </div>
           </form>
