@@ -1,4 +1,5 @@
 import { ThemeProvider } from './context/ThemeContext';
+import AnimatedBackground from './components/AnimatedBackground';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import About from './sections/About';
@@ -13,9 +14,12 @@ import BackToTop from './components/BackToTop';
 function App() {
   return (
     <ThemeProvider>
-      <div className="dark:bg-dark bg-slate-50 dark:text-white text-slate-900 min-h-screen transition-colors duration-300">
+      <div className="dark:bg-dark bg-slate-50 dark:text-white text-slate-900 min-h-screen transition-colors duration-300 relative">
+        {/* Global animated background (fixed, behind everything) */}
+        <AnimatedBackground />
+
         <Navbar />
-        <main>
+        <main className="relative z-10">
           <Hero />
           <About />
           <Skills />

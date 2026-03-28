@@ -21,9 +21,10 @@ html.dark {
   --text-primary: #E2E8F0;
   --text-secondary: #94A3B8;
   --text-muted: #64748B;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
   --scrollbar-track: #0A0A0F;
+  --grid-color: rgba(108, 99, 255, 0.06);
 }
 
 /* Light theme */
@@ -37,6 +38,7 @@ html.light {
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(148, 163, 184, 0.3);
   --scrollbar-track: #F1F5F9;
+  --grid-color: rgba(108, 99, 255, 0.04);
 }
 
 body {
@@ -48,7 +50,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -56,17 +58,20 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6C63FF;
+  background: linear-gradient(180deg, #6C63FF, #00D4FF);
   border-radius: 3px;
 }
 
+/* ─── Glass ─────────────────────────────────── */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
+  transform: translateZ(0);
 }
 
+/* ─── Gradient text ──────────────────────────── */
 .gradient-text {
   background: linear-gradient(135deg, #6C63FF, #00D4FF);
   -webkit-background-clip: text;
@@ -74,12 +79,33 @@ body {
   background-clip: text;
 }
 
-.gradient-border {
-  background: linear-gradient(135deg, #6C63FF, #00D4FF);
-  padding: 1px;
-  border-radius: 12px;
+/* ─── Glow utilities ─────────────────────────── */
+.glow-purple {
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.4), 0 0 60px rgba(108, 99, 255, 0.15);
 }
 
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.15);
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(108, 99, 255, 0.5);
+}
+
+/* ─── Grid / dot background ──────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bg-dot {
+  background-image: radial-gradient(circle, var(--grid-color) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* ─── Section padding ────────────────────────── */
 .section-padding {
   padding: 5rem 1.5rem;
 }
@@ -90,14 +116,66 @@ body {
   }
 }
 
-/* Ensure backdrop-filter elements are GPU-composited */
-.glass {
-  transform: translateZ(0);
+/* ─── Futuristic card ────────────────────────── */
+.card-futuristic {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-/* Theme transition for all elements */
+.card-futuristic:hover {
+  border-color: rgba(108, 99, 255, 0.3);
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.08), inset 0 0 30px rgba(108, 99, 255, 0.03);
+}
+
+/* ─── Neon button ────────────────────────────── */
+.btn-neon {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.btn-neon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.08) 50%, transparent 70%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  transition: background-position 0.5s;
+}
+
+.btn-neon:hover::after {
+  background-position: -200% 0;
+}
+
+/* ─── Theme transition ───────────────────────── */
 .theme-transition,
 .theme-transition * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
+/* ─── Typing cursor ──────────────────────────── */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #6C63FF;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── Shimmer ────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
 import { HiSun, HiMoon } from 'react-icons/hi';
+import { HiDownload } from 'react-icons/hi';
 import { navLinks } from '../data';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { useTheme } from '../context/useTheme';
@@ -32,7 +33,7 @@ const Navbar = () => {
   return (
     <>
       {/* Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 w-full h-1 z-[100] dark:bg-dark-border bg-slate-200">
+      <div className="fixed top-0 left-0 w-full h-0.5 z-[100]">
         <motion.div
           className="h-full origin-left"
           style={{
@@ -44,7 +45,9 @@ const Navbar = () => {
 
       <motion.nav
         className={`fixed top-1 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled ? 'py-3 glass shadow-2xl shadow-primary/5' : 'py-5 bg-transparent'
+          scrolled
+            ? 'py-3 glass shadow-2xl shadow-primary/5 border-b border-primary/10'
+            : 'py-5 bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -52,13 +55,13 @@ const Navbar = () => {
           <motion.a
             href="#home"
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold gradient-text"
+            className="text-2xl font-display font-bold gradient-text"
           >
             WA.
           </motion.a>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <motion.a
                 key={link.name}
@@ -74,15 +77,28 @@ const Navbar = () => {
               </motion.a>
             ))}
 
+            {/* Resume Button */}
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, boxShadow: '0 0 18px rgba(0,212,255,0.35)' }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-semibold text-accent border border-accent/30 hover:border-accent/60 glass transition-colors"
+            >
+              <HiDownload size={15} />
+              Resume
+            </motion.a>
+
             {/* Theme Toggle */}
             <motion.button
               onClick={toggleTheme}
               whileHover={{ scale: 1.1, rotate: 15 }}
               whileTap={{ scale: 0.9 }}
-              className="w-10 h-10 rounded-full glass flex items-center justify-center dark:text-slate-400 text-slate-600 dark:hover:text-white hover:text-slate-900 transition-colors border dark:border-dark-border border-slate-200"
+              className="w-9 h-9 rounded-full glass flex items-center justify-center dark:text-slate-400 text-slate-600 dark:hover:text-white hover:text-slate-900 transition-colors border dark:border-dark-border border-slate-200"
               aria-label="Toggle theme"
             >
-              {isDark ? <HiSun size={18} /> : <HiMoon size={18} />}
+              {isDark ? <HiSun size={17} /> : <HiMoon size={17} />}
             </motion.button>
           </div>
 
@@ -115,7 +131,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'tween', duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="fixed inset-y-0 right-0 w-72 z-40 glass shadow-2xl p-8 flex flex-col gap-6 pt-24"
+            className="fixed inset-y-0 right-0 w-72 z-40 glass shadow-2xl p-8 flex flex-col gap-5 pt-24 border-l border-primary/10"
           >
             {navLinks.map((link) => (
               <motion.a
@@ -132,6 +148,19 @@ const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
+
+            {/* Mobile Resume Button */}
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ x: 5 }}
+              onClick={() => setIsOpen(false)}
+              className="flex items-center gap-2 text-lg font-semibold text-accent"
+            >
+              <HiDownload size={18} />
+              Download Resume
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -140,4 +169,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
