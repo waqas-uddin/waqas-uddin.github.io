@@ -3,6 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
 import SpotlightCard from '../components/SpotlightCard';
+import BorderBeam from '../components/BorderBeam';
 import { projects } from '../data';
 
 const techColors = {
@@ -30,9 +31,11 @@ const ProjectCard = ({ project, index }) => (
     className="h-full"
   >
     <SpotlightCard
-      className="glass rounded-2xl overflow-hidden border dark:border-dark-border border-slate-200 card-futuristic h-full flex flex-col"
+      className="relative glass rounded-2xl overflow-hidden border dark:border-dark-border border-slate-200 card-futuristic h-full flex flex-col"
       spotlightColor={`${project.color}18`}
     >
+      <BorderBeam colorFrom={project.color} colorTo="#00D4FF" duration={6} />
+
       {/* Top color accent */}
       <div
         className="h-1 w-full flex-shrink-0"
@@ -47,14 +50,21 @@ const ProjectCard = ({ project, index }) => (
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           loading="lazy"
           onError={(e) => { e.currentTarget.style.display = 'none'; }}
         />
-        {/* Subtle corner glow */}
         <div
           className="absolute inset-0"
           style={{ background: `radial-gradient(circle at 0% 0%, ${project.color}20 0%, transparent 60%)` }}
+        />
+        {/* Corner glow */}
+        <div
+          className="absolute bottom-0 right-0 w-20 h-20 rounded-full"
+          style={{
+            background: `radial-gradient(circle, ${project.color}30 0%, transparent 70%)`,
+            filter: 'blur(10px)',
+          }}
         />
       </div>
 

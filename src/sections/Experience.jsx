@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import SectionTitle from '../components/SectionTitle';
 import SpotlightCard from '../components/SpotlightCard';
+import BorderBeam from '../components/BorderBeam';
 import { experiences } from '../data';
 import { HiBriefcase } from 'react-icons/hi';
 
@@ -32,12 +33,12 @@ const Experience = () => {
                   initial={{ scale: 0.5 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.1 + 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                  transition={{ duration: 0.3, delay: index * 0.1 + 0.15 }}
                   className="absolute left-0 w-12 h-12 rounded-full flex items-center justify-center border-2"
                   style={{
                     background: `${exp.color}15`,
                     borderColor: exp.color,
-                    boxShadow: `0 0 15px ${exp.color}30`,
+                    boxShadow: `0 0 20px ${exp.color}40`,
                   }}
                 >
                   <HiBriefcase style={{ color: exp.color }} size={20} />
@@ -45,9 +46,10 @@ const Experience = () => {
 
                 {/* Card */}
                 <SpotlightCard
-                  className="glass rounded-2xl p-6 border dark:border-dark-border border-slate-200 card-futuristic"
+                  className="relative glass rounded-2xl p-6 border dark:border-dark-border border-slate-200 card-futuristic overflow-hidden"
                   spotlightColor={`${exp.color}15`}
                 >
+                  <BorderBeam colorFrom={exp.color} colorTo={`${exp.color}60`} duration={7} />
                   <div className="flex flex-wrap justify-between items-start gap-2 mb-4">
                     <div>
                       <h3 className="font-display text-xl font-bold dark:text-white text-slate-900">{exp.role}</h3>

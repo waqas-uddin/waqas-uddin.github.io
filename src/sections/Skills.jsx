@@ -9,6 +9,7 @@ import { MdSecurity } from 'react-icons/md';
 import { BsDatabase } from 'react-icons/bs';
 import SectionTitle from '../components/SectionTitle';
 import SpotlightCard from '../components/SpotlightCard';
+import BorderBeam from '../components/BorderBeam';
 
 const skillsData = {
   Frontend: [
@@ -47,14 +48,18 @@ const SkillCard = ({ name, icon: IconComp, color, delay }) => (
     className="group"
   >
     <SpotlightCard
-      className="glass rounded-2xl p-5 flex flex-col items-center gap-3 border dark:border-dark-border border-slate-200 card-futuristic h-full"
+      className="relative glass rounded-2xl p-5 flex flex-col items-center gap-3 border dark:border-dark-border border-slate-200 card-futuristic h-full overflow-hidden"
       spotlightColor={`${color}22`}
     >
+      <BorderBeam colorFrom={color} colorTo={`${color}60`} duration={5} />
       <motion.div
         whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
         transition={{ duration: 0.3 }}
         className="w-14 h-14 rounded-xl flex items-center justify-center"
-        style={{ background: `${color}15` }}
+        style={{
+          background: `${color}15`,
+          boxShadow: `0 0 15px ${color}20`,
+        }}
       >
         <IconComp size={28} style={{ color }} />
       </motion.div>
@@ -86,10 +91,12 @@ const Skills = () => {
                 transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                 className="flex items-center gap-3 mb-6"
               >
-                {/* Colored dot */}
                 <span
                   className="w-2 h-2 rounded-full flex-shrink-0"
-                  style={{ background: categoryColors[category] || '#6C63FF', boxShadow: `0 0 8px ${categoryColors[category] || '#6C63FF'}` }}
+                  style={{
+                    background: categoryColors[category] || '#6C63FF',
+                    boxShadow: `0 0 8px ${categoryColors[category] || '#6C63FF'}`,
+                  }}
                 />
                 <span
                   className="text-sm font-semibold tracking-widest uppercase"

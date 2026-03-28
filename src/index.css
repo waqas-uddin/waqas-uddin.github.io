@@ -179,3 +179,206 @@ body {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
+/* ─── Custom Cursor ──────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
+
+  .cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6C63FF, #00D4FF);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px rgba(108,99,255,0.9), 0 0 24px rgba(0,212,255,0.4);
+    transition: width 0.12s, height 0.12s, box-shadow 0.12s;
+  }
+
+  .cursor-dot.cursor-hover {
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 0 20px rgba(108,99,255,1), 0 0 40px rgba(0,212,255,0.7);
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(108,99,255,0.5);
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .cursor-ring.cursor-hover {
+    width: 52px;
+    height: 52px;
+    border-color: rgba(108,99,255,0.8);
+    background: rgba(108,99,255,0.05);
+  }
+}
+
+/* ─── BorderBeam (@property) ─────────────────── */
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0turn;
+}
+
+@keyframes borderSpin {
+  to { --border-angle: 1turn; }
+}
+
+.border-beam {
+  padding: 1px;
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 70%,
+    var(--beam-color-from, #6C63FF) 85%,
+    var(--beam-color-to, #00D4FF) 95%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderSpin var(--beam-duration, 5s) linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* Show beam on parent hover */
+*:hover > .border-beam,
+.border-beam-active {
+  opacity: 1;
+}
+
+/* ─── Neon glow pulse ────────────────────────── */
+@keyframes neonPulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(108,99,255,0.3), 0 0 20px rgba(108,99,255,0.1); }
+  50%       { box-shadow: 0 0 15px rgba(108,99,255,0.7), 0 0 40px rgba(108,99,255,0.3); }
+}
+
+.neon-pulse {
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+/* ─── Glitch text effect ─────────────────────── */
+@keyframes glitch1 {
+  0%, 94%, 100%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  95% { clip-path: inset(20% 0 40% 0); transform: translate(-4px, 1px); }
+  97% { clip-path: inset(55% 0 15% 0); transform: translate(4px, -1px); }
+  99% { clip-path: inset(80% 0 5% 0);  transform: translate(-2px, 1px); }
+}
+
+@keyframes glitch2 {
+  0%, 94%, 100%   { clip-path: inset(0 0 100% 0); transform: translate(0); }
+  96% { clip-path: inset(35% 0 45% 0); transform: translate(4px, -2px); }
+  98% { clip-path: inset(70% 0 10% 0); transform: translate(-4px, 2px); }
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glitch::before {
+  color: #00D4FF;
+  animation: glitch1 6s steps(1) infinite;
+  left: 2px;
+}
+
+.glitch::after {
+  color: #FF6B9D;
+  animation: glitch2 6s steps(1) infinite;
+  left: -2px;
+}
+
+/* ─── Float animation ────────────────────────── */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+.animate-float {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+/* ─── Gradient border glow on cards ─────────── */
+.card-futuristic {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: border-color 0.35s, box-shadow 0.35s, transform 0.3s;
+  position: relative;
+}
+
+.card-futuristic:hover {
+  border-color: rgba(108, 99, 255, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(108, 99, 255, 0.15),
+    0 8px 40px rgba(108, 99, 255, 0.12),
+    inset 0 0 30px rgba(108, 99, 255, 0.04);
+}
+
+/* ─── Section scan line ──────────────────────── */
+@keyframes scanLine {
+  0%   { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* ─── Gradient text animate ──────────────────── */
+.gradient-text-animate {
+  background: linear-gradient(135deg, #6C63FF 0%, #00D4FF 50%, #FF6B9D 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 5s linear infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── Highlight badge ────────────────────────── */
+.badge-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(108,99,255,0.2), transparent);
+  transform: translateX(-100%);
+  animation: badgeSweep 3s ease infinite;
+}
+
+@keyframes badgeSweep {
+  0%   { transform: translateX(-100%); }
+  50%, 100% { transform: translateX(100%); }
+}

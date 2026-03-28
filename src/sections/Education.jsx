@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
 import SpotlightCard from '../components/SpotlightCard';
+import BorderBeam from '../components/BorderBeam';
 import { education } from '../data';
 import { HiAcademicCap } from 'react-icons/hi';
 
@@ -21,15 +22,20 @@ const Education = () => {
             whileHover={{ y: -4 }}
           >
             <SpotlightCard
-              className="glass rounded-2xl p-8 border dark:border-dark-border border-slate-200 card-futuristic"
+              className="relative glass rounded-2xl p-8 border dark:border-dark-border border-slate-200 card-futuristic overflow-hidden"
               spotlightColor={`${edu.color}18`}
             >
+              <BorderBeam colorFrom={edu.color} colorTo="#00D4FF" duration={6} />
               <div className="flex items-start gap-6">
                 <motion.div
                   whileHover={{ rotate: [0, -8, 8, 0], scale: 1.05 }}
                   transition={{ duration: 0.4 }}
                   className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${edu.color}18`, border: `1px solid ${edu.color}30`, boxShadow: `0 0 20px ${edu.color}20` }}
+                  style={{
+                    background: `${edu.color}18`,
+                    border: `1px solid ${edu.color}30`,
+                    boxShadow: `0 0 25px ${edu.color}25`,
+                  }}
                 >
                   <HiAcademicCap size={30} style={{ color: edu.color }} />
                 </motion.div>

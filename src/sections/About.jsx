@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
 import SpotlightCard from '../components/SpotlightCard';
+import AnimatedCounter from '../components/AnimatedCounter';
+import BorderBeam from '../components/BorderBeam';
 import { FaCode, FaServer, FaMobile } from 'react-icons/fa';
 
 const About = () => {
@@ -12,9 +14,9 @@ const About = () => {
   ];
 
   const stats = [
-    { value: '5+', label: 'Projects Built' },
-    { value: '2', label: 'Internships' },
-    { value: '4+', label: 'Years Learning' },
+    { value: 5, suffix: '+', label: 'Projects Built' },
+    { value: 2, suffix: '', label: 'Internships' },
+    { value: 4, suffix: '+', label: 'Years Learning' },
   ];
 
   return (
@@ -43,20 +45,24 @@ const About = () => {
           {/* Quick tags */}
           <div className="flex flex-wrap gap-2 mb-8">
             {['React', 'Node.js', 'MongoDB', 'Spring Boot', 'TypeScript', 'Flutter'].map((tech) => (
-              <span
+              <motion.span
                 key={tech}
-                className="px-3 py-1 rounded-full text-xs font-medium glass border border-primary/20 dark:text-slate-300 text-slate-700"
+                whileHover={{ scale: 1.08, boxShadow: '0 0 12px rgba(108,99,255,0.3)' }}
+                className="px-3 py-1 rounded-full text-xs font-medium glass border border-primary/20 dark:text-slate-300 text-slate-700 transition-all"
               >
                 {tech}
-              </span>
+              </motion.span>
             ))}
           </div>
 
-          {/* Stats row */}
+          {/* Stats row with animated counters */}
           <div className="grid grid-cols-3 gap-4">
-            {stats.map(({ value, label }) => (
-              <div key={label} className="text-center glass rounded-xl py-4 border border-primary/10">
-                <p className="font-display text-2xl font-bold gradient-text">{value}</p>
+            {stats.map(({ value, suffix, label }) => (
+              <div key={label} className="relative text-center glass rounded-xl py-4 border border-primary/10 overflow-hidden group">
+                <BorderBeam colorFrom="#6C63FF" colorTo="#00D4FF" duration={5} />
+                <p className="font-display text-2xl font-bold gradient-text">
+                  <AnimatedCounter target={value} suffix={suffix} />
+                </p>
                 <p className="text-xs dark:text-slate-400 text-slate-500 mt-1">{label}</p>
               </div>
             ))}
@@ -80,14 +86,19 @@ const About = () => {
               transition={{ duration: 0.4, delay: i * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <SpotlightCard
-                className="glass rounded-2xl p-6 flex items-center gap-5 border dark:border-dark-border border-slate-200 card-futuristic"
+                className="relative glass rounded-2xl p-6 flex items-center gap-5 border dark:border-dark-border border-slate-200 card-futuristic overflow-hidden"
                 spotlightColor={`${card.color}18`}
               >
+                <BorderBeam colorFrom={card.color} colorTo={`${card.color}80`} duration={6} />
                 <motion.div
                   whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                   transition={{ duration: 0.4 }}
                   className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${card.color}18`, border: `1px solid ${card.color}30` }}
+                  style={{
+                    background: `${card.color}18`,
+                    border: `1px solid ${card.color}30`,
+                    boxShadow: `0 0 15px ${card.color}20`,
+                  }}
                 >
                   <card.icon size={24} style={{ color: card.color }} />
                 </motion.div>

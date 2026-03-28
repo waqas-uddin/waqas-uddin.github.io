@@ -1,5 +1,7 @@
 import { ThemeProvider } from './context/ThemeContext';
 import AnimatedBackground from './components/AnimatedBackground';
+import ParticlesBackground from './components/ParticlesBackground';
+import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import About from './sections/About';
@@ -15,7 +17,11 @@ function App() {
   return (
     <ThemeProvider>
       <div className="dark:bg-dark bg-slate-50 dark:text-white text-slate-900 min-h-screen transition-colors duration-300 relative">
-        {/* Global animated background (fixed, behind everything) */}
+        {/* Custom glow cursor (desktop only) */}
+        <CustomCursor />
+
+        {/* Global animated backgrounds (fixed, behind everything) */}
+        <ParticlesBackground />
         <AnimatedBackground />
 
         <Navbar />
