@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiDownload, HiArrowRight, HiExternalLink } from 'react-icons/hi';
+import BackgroundPaths from '../components/BackgroundPaths';
+import PulseBeam from '../components/PulseBeam';
 
 const TYPING_TEXTS = ['Full Stack Developer', 'React Developer', 'Node.js Developer'];
 
@@ -38,6 +40,102 @@ const CodeBlock = () => (
   </motion.div>
 );
 
+/**
+ * ScrollMediaExpansion — 21st.dev "Scroll Media Expansion Hero"
+ * A preview frame that starts small/contracted and expands to full-width
+ * as the user scrolls down past the hero section.
+ */
+const ScrollMediaExpansion = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5], [0.7, 1]);
+  const borderRadius = useTransform(scrollYProgress, [0, 0.5], [32, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.7], [0, 1, 1]);
+
+  return (
+    <div ref={ref} className="w-full mt-16 flex justify-center px-4">
+      <motion.div
+        style={{ scale, borderRadius, opacity }}
+        aria-label="Interactive preview showing portfolio statistics"
+        className="w-full max-w-5xl overflow-hidden border border-primary/20 dark:bg-dark-card bg-white/80"
+        whileHover={{ boxShadow: '0 0 60px rgba(108,99,255,0.15)' }}
+      >
+        {/* Mock browser chrome */}
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-primary/10 dark:bg-dark/80 bg-slate-100/80 backdrop-blur-sm">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-red-400/80" />
+            <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+            <div className="w-3 h-3 rounded-full bg-green-400/80" />
+          </div>
+          <div className="flex-1 mx-4">
+            <div className="glass rounded-full px-4 py-1 text-xs font-mono dark:text-slate-500 text-slate-400 flex items-center gap-2 max-w-xs mx-auto">
+              <span className="text-green-400/70">●</span>
+              <span>waqas-uddin.github.io</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Preview content inside the "browser" */}
+        <div className="relative dark:bg-dark/60 bg-slate-50/60 p-8 min-h-[220px] flex items-center justify-center overflow-hidden">
+          {/* Grid lines */}
+          <div className="absolute inset-0 bg-grid opacity-40" />
+
+          {/* Animated accent scanning lines */}
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute left-0 right-0 h-px"
+              style={{
+                top: `${30 + i * 30}%`,
+                background: `linear-gradient(90deg, transparent, rgba(${i === 1 ? '0,212,255' : '108,99,255'},0.3), transparent)`,
+              }}
+              animate={{ x: ['-100%', '100%'] }}
+              transition={{
+                duration: 4 + i,
+                repeat: Infinity,
+                ease: 'linear',
+                delay: i * 1.2,
+              }}
+            />
+          ))}
+
+          {/* Tech stats display */}
+          <div className="relative z-10 flex flex-wrap justify-center gap-6">
+            {[
+              { label: 'Projects', value: '15+', color: '#6C63FF' },
+              { label: 'Experience', value: '2+ yrs', color: '#00D4FF' },
+              { label: 'Technologies', value: '20+', color: '#FF6B9D' },
+              { label: 'Commits', value: '500+', color: '#00FF94' },
+            ].map((stat) => (
+              <motion.div
+                key={stat.label}
+                className="glass rounded-xl px-6 py-4 border border-primary/20 text-center min-w-[120px]"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+                style={{ '--hover-color': stat.color }}
+              >
+                <div
+                  className="text-2xl font-bold font-display mb-1"
+                  style={{ color: stat.color }}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-xs dark:text-slate-400 text-slate-500 font-mono tracking-wider">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
@@ -66,7 +164,10 @@ const Hero = () => {
   }, [displayText, isDeleting, textIndex]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col items-center overflow-hidden">
+      {/* 21st.dev Background Paths / Shape Landing Hero */}
+      <BackgroundPaths />
+
       {/* Animated scan line */}
       <motion.div
         className="absolute left-0 w-full h-px pointer-events-none z-10"
@@ -81,9 +182,9 @@ const Hero = () => {
       <div className="absolute bottom-1/4 -right-40 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 70%)', filter: 'blur(60px)' }} />
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
+      {/* Hero content (fills viewport height) */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-20 pb-0 flex-1 flex items-center">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
 
           {/* LEFT — main text */}
           <div className="flex-1 text-center lg:text-left max-w-2xl">
@@ -164,19 +265,21 @@ const Hero = () => {
                 Contact Me
               </motion.a>
 
-              {/* Resume — opens in new tab, can also be downloaded */}
-              <motion.a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0,212,255,0.3)' }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-accent text-sm glass border border-accent/25 hover:border-accent/50 transition-colors"
-              >
-                <HiDownload size={17} />
-                Resume
-                <HiExternalLink size={14} className="opacity-60" />
-              </motion.a>
+              {/* Resume — 21st.dev Pulse Beams wrapping the button */}
+              <PulseBeam color="#00D4FF">
+                <motion.a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0,212,255,0.3)' }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-accent text-sm glass border border-accent/25 hover:border-accent/50 transition-colors"
+                >
+                  <HiDownload size={17} />
+                  Resume
+                  <HiExternalLink size={14} className="opacity-60" />
+                </motion.a>
+              </PulseBeam>
             </motion.div>
 
             {/* Social Links */}
@@ -226,7 +329,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+      <div className="relative z-10 py-6 flex flex-col items-center gap-2">
         <span className="text-xs dark:text-slate-500 text-slate-400 font-mono tracking-widest uppercase">scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
@@ -234,6 +337,9 @@ const Hero = () => {
           className="w-px h-10 bg-gradient-to-b from-primary to-transparent"
         />
       </div>
+
+      {/* 21st.dev Scroll Media Expansion Hero */}
+      <ScrollMediaExpansion />
     </section>
   );
 };
