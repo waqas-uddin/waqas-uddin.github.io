@@ -108,7 +108,7 @@ const ScrollMediaExpansion = memo(() => {
           {/* Tech stats display */}
           <div className="relative z-10 flex flex-wrap justify-center gap-6">
             {[
-              { label: 'Projects', value: '15+', color: '#6C63FF' },
+              { label: 'Projects', value: '7+', color: '#6C63FF' },
               { label: 'Experience', value: '2+ yrs', color: '#00D4FF' },
               { label: 'Technologies', value: '20+', color: '#FF6B9D' },
               { label: 'Commits', value: '500+', color: '#00FF94' },
