@@ -85,7 +85,7 @@ const Contact = () => {
             I&apos;m currently open to new opportunities. Whether you have a project in mind, a question, or just want to say hello — feel free to reach out!
           </p>
 
-          <div className="space-y-3">
+          <div className="space-y-5">
             {contactInfo.map((item, i) => (
               <motion.a
                 key={item.label}
