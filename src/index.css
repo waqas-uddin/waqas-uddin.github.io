@@ -179,3 +179,42 @@ body {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
+/* ─── Animated background orbs (CSS keyframes, no JS overhead) ──── */
+@keyframes orbPurple {
+  0%, 100% { transform: scale(1); opacity: 0.18; }
+  50% { transform: scale(1.25); opacity: 0.28; }
+}
+
+@keyframes orbCyan {
+  0%, 100% { transform: scale(1); opacity: 0.12; }
+  50% { transform: scale(1.2); opacity: 0.22; }
+}
+
+@keyframes orbPink {
+  0%, 100% { transform: scale(1); opacity: 0.08; }
+  50% { transform: scale(1.15); opacity: 0.15; }
+}
+
+.anim-orb-purple {
+  animation: orbPurple 9s ease-in-out infinite;
+}
+
+.anim-orb-cyan {
+  animation: orbCyan 11s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.anim-orb-pink {
+  animation: orbPink 13s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .anim-orb-purple,
+  .anim-orb-cyan,
+  .anim-orb-pink {
+    animation: none;
+  }
+}

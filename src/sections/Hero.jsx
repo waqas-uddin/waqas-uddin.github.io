@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useEffect, useRef, useState, memo } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiDownload, HiArrowRight, HiExternalLink } from 'react-icons/hi';
 import BackgroundPaths from '../components/BackgroundPaths';
@@ -8,7 +8,7 @@ import PulseBeam from '../components/PulseBeam';
 const TYPING_TEXTS = ['Full Stack Developer', 'React Developer', 'Node.js Developer'];
 
 /* Small animated "code block" shown on desktop beside the text */
-const CodeBlock = () => (
+const CodeBlock = memo(() => (
   <motion.div
     initial={{ x: 60, opacity: 0 }}
     animate={{ x: 0, opacity: 1 }}
@@ -38,14 +38,16 @@ const CodeBlock = () => (
       </motion.p>
     </div>
   </motion.div>
-);
+));
+
+CodeBlock.displayName = 'CodeBlock';
 
 /**
  * ScrollMediaExpansion — 21st.dev "Scroll Media Expansion Hero"
  * A preview frame that starts small/contracted and expands to full-width
  * as the user scrolls down past the hero section.
  */
-const ScrollMediaExpansion = () => {
+const ScrollMediaExpansion = memo(() => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -134,12 +136,15 @@ const ScrollMediaExpansion = () => {
       </motion.div>
     </div>
   );
-};
+});
+
+ScrollMediaExpansion.displayName = 'ScrollMediaExpansion';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const shouldReduce = useReducedMotion();
 
   useEffect(() => {
     const currentText = TYPING_TEXTS[textIndex];
@@ -169,12 +174,14 @@ const Hero = () => {
       <BackgroundPaths />
 
       {/* Animated scan line */}
-      <motion.div
-        className="absolute left-0 w-full h-px pointer-events-none z-10"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(108,99,255,0.4), rgba(0,212,255,0.4), transparent)' }}
-        animate={{ top: ['-2px', '100vh'] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'linear', repeatDelay: 4 }}
-      />
+      {!shouldReduce && (
+        <motion.div
+          className="absolute left-0 w-full h-px pointer-events-none z-10"
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(108,99,255,0.4), rgba(0,212,255,0.4), transparent)', willChange: 'top' }}
+          animate={{ top: ['-2px', '100vh'] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'linear', repeatDelay: 4 }}
+        />
+      )}
 
       {/* Background gradient orbs */}
       <div className="absolute top-1/4 -left-40 w-[500px] h-[500px] rounded-full pointer-events-none"
