@@ -16,14 +16,25 @@ const SpotlightCard = ({
   ...rest
 }) => {
   const cardRef = useRef(null);
+  const rafRef = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = useCallback((e) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (rect) {
-      setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      const rect = cardRef.current?.getBoundingClientRect();
+      if (rect) setPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      rafRef.current = null;
+    });
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
     }
+    setIsHovered(false);
   }, []);
 
   return (
@@ -31,7 +42,7 @@ const SpotlightCard = ({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={handleMouseLeave}
       className={`relative ${className}`}
       {...rest}
     >

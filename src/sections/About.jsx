@@ -12,7 +12,7 @@ const About = () => {
   ];
 
   const stats = [
-    { value: '5+', label: 'Projects Built' },
+    { value: '7+', label: 'Projects Built' },
     { value: '2', label: 'Internships' },
     { value: '4+', label: 'Years Learning' },
   ];

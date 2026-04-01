@@ -70,7 +70,7 @@ const Contact = () => {
     <SectionWrapper id="contact">
       <SectionTitle title="Get In Touch" subtitle="Contact Me" />
 
-      <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Contact Info */}
         <motion.div
           initial={{ x: -50 }}

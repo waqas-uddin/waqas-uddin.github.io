@@ -27,7 +27,7 @@ const ProjectCard = ({ project, index }) => (
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
     whileHover={{ y: -6 }}
-    className="h-full"
+    className="h-full group"
   >
     <SpotlightCard
       className="glass rounded-2xl overflow-hidden border dark:border-dark-border border-slate-200 card-futuristic h-full flex flex-col"
@@ -47,7 +47,7 @@ const ProjectCard = ({ project, index }) => (
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
           onError={(e) => { e.currentTarget.style.display = 'none'; }}
         />
