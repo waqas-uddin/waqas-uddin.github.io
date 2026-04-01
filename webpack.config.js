@@ -77,6 +77,15 @@ export default (env, argv) => {
         '...',
         new CssMinimizerPlugin(),
       ],
+      splitChunks: {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+          },
+        },
+      },
     },
     devServer: {
       static: {

@@ -1,15 +1,17 @@
+import { lazy, Suspense } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import AnimatedBackground from './components/AnimatedBackground';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
-import About from './sections/About';
-import Skills from './sections/Skills';
-import Projects from './sections/Projects';
-import Experience from './sections/Experience';
-import Education from './sections/Education';
-import Contact from './sections/Contact';
-import Footer from './sections/Footer';
 import BackToTop from './components/BackToTop';
+
+const About = lazy(() => import('./sections/About'));
+const Skills = lazy(() => import('./sections/Skills'));
+const Projects = lazy(() => import('./sections/Projects'));
+const Experience = lazy(() => import('./sections/Experience'));
+const Education = lazy(() => import('./sections/Education'));
+const Contact = lazy(() => import('./sections/Contact'));
+const Footer = lazy(() => import('./sections/Footer'));
 
 function App() {
   return (
@@ -21,14 +23,18 @@ function App() {
         <Navbar />
         <main className="relative z-10">
           <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Education />
-          <Contact />
+          <Suspense fallback={null}>
+            <About />
+            <Skills />
+            <Projects />
+            <Experience />
+            <Education />
+            <Contact />
+          </Suspense>
         </main>
-        <Footer />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
         <BackToTop />
       </div>
     </ThemeProvider>

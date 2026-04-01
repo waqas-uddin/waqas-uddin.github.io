@@ -7,7 +7,7 @@ import { motion, useReducedMotion } from 'framer-motion';
  * creating a futuristic, tech-inspired visual effect.
  */
 
-const PATHS_PER_SIDE = 18;
+const PATHS_PER_SIDE = 8;
 
 // Pre-compute stable durations outside the component to keep renders pure
 const PATH_DURATIONS = Array.from({ length: PATHS_PER_SIDE }, (_, i) => 20 + (i % 5) * 2.5);

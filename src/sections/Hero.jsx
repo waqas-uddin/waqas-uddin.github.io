@@ -29,13 +29,7 @@ const CodeBlock = memo(() => (
       <p className="pl-4"><span className="dark:text-slate-400 text-slate-500">stack:</span> <span className="text-yellow-400/80">['React', 'Node']</span><span className="dark:text-slate-500 text-slate-400">,</span></p>
       <p className="pl-4"><span className="dark:text-slate-400 text-slate-500">open:</span> <span className="text-accent/80">true</span><span className="dark:text-slate-500 text-slate-400">,</span></p>
       <p><span className="dark:text-slate-400 text-slate-500">{'}'}</span></p>
-      <motion.p
-        animate={{ opacity: [1, 0, 1] }}
-        transition={{ duration: 1.2, repeat: Infinity }}
-        className="text-primary/70 mt-2"
-      >
-        █
-      </motion.p>
+      <p className="text-primary/70 mt-2"><span className="typing-cursor" /></p>
     </div>
   </motion.div>
 ));
@@ -49,6 +43,7 @@ CodeBlock.displayName = 'CodeBlock';
  */
 const ScrollMediaExpansion = memo(() => {
   const ref = useRef(null);
+  const shouldReduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
@@ -86,21 +81,21 @@ const ScrollMediaExpansion = memo(() => {
           {/* Grid lines */}
           <div className="absolute inset-0 bg-grid opacity-40" />
 
-          {/* Animated accent scanning lines */}
-          {[...Array(3)].map((_, i) => (
+          {/* Animated accent scanning lines — only 2, only when motion is allowed */}
+          {!shouldReduce && [0, 1].map((i) => (
             <motion.div
               key={i}
               className="absolute left-0 right-0 h-px"
               style={{
-                top: `${30 + i * 30}%`,
-                background: `linear-gradient(90deg, transparent, rgba(${i === 1 ? '0,212,255' : '108,99,255'},0.3), transparent)`,
+                top: `${30 + i * 40}%`,
+                background: `linear-gradient(90deg, transparent, rgba(${i === 0 ? '108,99,255' : '0,212,255'},0.3), transparent)`,
               }}
               animate={{ x: ['-100%', '100%'] }}
               transition={{
-                duration: 4 + i,
+                duration: 5 + i,
                 repeat: Infinity,
                 ease: 'linear',
-                delay: i * 1.2,
+                delay: i * 1.5,
               }}
             />
           ))}
