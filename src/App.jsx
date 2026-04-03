@@ -10,6 +10,7 @@ const Skills = lazy(() => import('./sections/Skills'));
 const Projects = lazy(() => import('./sections/Projects'));
 const Experience = lazy(() => import('./sections/Experience'));
 const Education = lazy(() => import('./sections/Education'));
+const Learning = lazy(() => import('./sections/Learning'));
 const Contact = lazy(() => import('./sections/Contact'));
 const Footer = lazy(() => import('./sections/Footer'));
 
@@ -29,6 +30,7 @@ function App() {
             <Projects />
             <Experience />
             <Education />
+            <Learning />
             <Contact />
           </Suspense>
         </main>
