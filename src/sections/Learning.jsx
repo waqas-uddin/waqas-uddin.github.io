@@ -1,9 +1,5 @@
 import { motion } from 'framer-motion';
 import { FaSitemap, FaCloud, FaLayerGroup } from 'react-icons/fa';
-import {
-  SiDocker, SiKubernetes, SiGithubactions, SiTerraform, SiNginx,
-  SiRedis, SiGraphql, SiNextdotjs, SiTypescript, SiPostgresql,
-} from 'react-icons/si';
 import { MdArchitecture } from 'react-icons/md';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionTitle from '../components/SectionTitle';
@@ -26,7 +22,6 @@ const learningItems = [
       'Learning CI/CD pipelines, containerisation, infrastructure as code, and cloud-native practices to automate and streamline the software delivery lifecycle.',
     color: '#00D4FF',
     tags: ['Docker', 'Kubernetes', 'GitHub Actions', 'Terraform', 'Nginx', 'Redis'],
-    tagIcons: [SiDocker, SiKubernetes, SiGithubactions, SiTerraform, SiNginx, SiRedis],
     progress: 30,
   },
   {
@@ -36,7 +31,6 @@ const learningItems = [
       'Deepening expertise across the entire stack — from advanced React patterns and TypeScript to server-side rendering, GraphQL, and production-grade database design.',
     color: '#FF6B6B',
     tags: ['Next.js', 'TypeScript', 'GraphQL', 'PostgreSQL', 'Testing', 'Performance'],
-    tagIcons: [SiNextdotjs, SiTypescript, SiGraphql, SiPostgresql, null, null],
     progress: 60,
   },
 ];

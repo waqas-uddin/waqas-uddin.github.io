@@ -29,8 +29,8 @@ function App() {
             <Skills />
             <Projects />
             <Experience />
-            <Education />
             <Learning />
+            <Education />
             <Contact />
           </Suspense>
         </main>
