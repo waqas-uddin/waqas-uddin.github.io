@@ -72,6 +72,20 @@ const Experience = () => {
                       </li>
                     ))}
                   </ul>
+                  <div className="flex flex-wrap gap-2 mt-5">
+                    {exp.tech.map((technology) => (
+                      <span
+                        key={technology}
+                        className="px-2.5 py-1 rounded-full text-xs font-medium dark:text-slate-300 text-slate-700"
+                        style={{
+                          background: `${exp.color}12`,
+                          border: `1px solid ${exp.color}30`,
+                        }}
+                      >
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
                 </SpotlightCard>
               </motion.div>
             ))}

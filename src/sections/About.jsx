@@ -6,9 +6,9 @@ import { FaCode, FaServer, FaMobile } from 'react-icons/fa';
 
 const About = () => {
   const cards = [
-    { icon: FaCode, title: 'Frontend', desc: 'React, JavaScript, HTML5, CSS3, Tailwind CSS, Flutter', color: '#6C63FF' },
-    { icon: FaServer, title: 'Backend', desc: 'Node.js, Express.js, Spring Boot, REST APIs', color: '#00D4FF' },
-    { icon: FaMobile, title: 'Mobile', desc: 'Flutter, React Native concepts, Cross-platform', color: '#FF6B9D' },
+    { icon: FaCode, title: 'Frontend', desc: 'React.js, React Native, TypeScript, Vite, Tailwind CSS', color: '#6C63FF' },
+    { icon: FaServer, title: 'Backend', desc: 'Django, Node.js, Express.js, Spring Boot, FastAPI, REST APIs', color: '#00D4FF' },
+    { icon: FaMobile, title: 'Mobile', desc: 'React Native, Expo, authentication, deep linking, Google Maps', color: '#FF6B9D' },
   ];
 
   const stats = [

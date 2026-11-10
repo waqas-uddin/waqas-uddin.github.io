@@ -1,25 +1,33 @@
 export const skills = {
   Frontend: [
     { name: 'React', icon: 'SiReact', color: '#61DAFB' },
+    { name: 'React Native', icon: 'SiReact', color: '#61DAFB' },
     { name: 'JavaScript', icon: 'SiJavascript', color: '#F7DF1E' },
+    { name: 'TypeScript', icon: 'SiTypescript', color: '#3178C6' },
     { name: 'HTML5', icon: 'SiHtml5', color: '#E34F26' },
     { name: 'CSS3', icon: 'SiCss3', color: '#1572B6' },
     { name: 'Tailwind CSS', icon: 'SiTailwindcss', color: '#06B6D4' },
     { name: 'Flutter', icon: 'SiFlutter', color: '#02569B' },
+    { name: 'Vite', icon: 'SiVite', color: '#646CFF' },
   ],
   Backend: [
+    { name: 'Django', icon: 'SiDjango', color: '#092E20' },
     { name: 'Node.js', icon: 'SiNodedotjs', color: '#339933' },
     { name: 'Express.js', icon: 'SiExpress', color: '#FFFFFF' },
     { name: 'Spring Boot', icon: 'SiSpringboot', color: '#6DB33F' },
+    { name: 'FastAPI', icon: 'SiFastapi', color: '#009688' },
     { name: 'REST APIs', icon: 'TbApi', color: '#FF6B6B' },
     { name: 'JWT Auth', icon: 'MdSecurity', color: '#6C63FF' },
   ],
   Databases: [
+    { name: 'PostgreSQL', icon: 'SiPostgresql', color: '#4169E1' },
     { name: 'MongoDB', icon: 'SiMongodb', color: '#47A248' },
     { name: 'MySQL', icon: 'SiMysql', color: '#4479A1' },
   ],
   Languages: [
     { name: 'JavaScript', icon: 'SiJavascript', color: '#F7DF1E' },
+    { name: 'TypeScript', icon: 'SiTypescript', color: '#3178C6' },
+    { name: 'Python', icon: 'SiPython', color: '#3776AB' },
     { name: 'Java', icon: 'FaJava', color: '#ED8B00' },
     { name: 'C++', icon: 'SiCplusplus', color: '#00599C' },
     { name: 'SQL', icon: 'TbSql', color: '#336791' },
@@ -95,27 +103,42 @@ export const projects = [
 export const experiences = [
   {
     id: 1,
-    role: 'Frontend Developer Intern',
-    company: 'Ismail Industries Limited',
-    period: 'Jun 2025 – Jul 2025',
+    role: 'Junior Full Stack Developer',
+    company: 'GYB Commerce',
+    period: 'Jun 2026 – Present',
     points: [
-      'Built internal tools using JavaScript',
-      'Integrated REST APIs',
-      'Implemented modular UI components',
+      'Contribute to Kiply.io, a restaurant operations and food cost management platform, developing recipe management, inventory, stock counts, wastage tracking, production batches, food cost analysis, and POS integrations',
+      'Develop REST APIs and integrate external POS and aggregator systems with webhook-based order synchronization, reconciliation workflows, API logging, and audit trails',
+      'Build responsive React.js interfaces and backend workflows for recipe management, ingredient and supplier mapping, market lists, recipe price versioning, and operational reporting',
+      'Contribute to Buddii, a React Native mobile application using Expo, implementing onboarding, authentication, deep linking, Google Maps integration, profile management, and API-driven features',
+      'Debug production issues and deliver features across frontend and backend systems from development through testing and deployment',
     ],
+    tech: ['React.js', 'Django', 'Node.js', 'Express.js', 'PostgreSQL', 'React Native', 'Expo'],
     color: '#6C63FF',
   },
   {
     id: 2,
     role: 'Frontend Developer Intern',
+    company: 'Ismail Industries Limited',
+    period: 'Jun 2025 – Jul 2025',
+    points: [
+      'Built internal tools using JavaScript and modular UI components',
+      'Integrated REST APIs to connect frontend workflows with backend services',
+    ],
+    tech: ['JavaScript', 'REST APIs', 'Modular UI'],
+    color: '#00D4FF',
+  },
+  {
+    id: 3,
+    role: 'Frontend Developer Intern',
     company: 'Scitforte',
     period: 'Aug 2024 – Sep 2024',
     points: [
-      'Developed responsive React SPAs',
-      'Integrated REST APIs',
-      'Collaborated with backend developers',
+      'Developed responsive React single-page applications',
+      'Integrated REST APIs and collaborated with backend developers to deliver features',
     ],
-    color: '#00D4FF',
+    tech: ['React', 'JavaScript', 'REST APIs'],
+    color: '#FF6B9D',
   },
 ];
 
@@ -139,4 +162,3 @@ export const navLinks = [
   { name: 'Education', href: '#education' },
   { name: 'Contact', href: '#contact' },
 ];
-

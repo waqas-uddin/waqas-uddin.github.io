@@ -79,7 +79,7 @@ const Navbar = () => {
 
             {/* Resume Button */}
             <motion.a
-              href="/resume.pdf"
+              href="/Waqas_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05, boxShadow: '0 0 18px rgba(0,212,255,0.35)' }}
@@ -151,7 +151,7 @@ const Navbar = () => {
 
             {/* Mobile Resume Button */}
             <motion.a
-              href="/resume.pdf"
+              href="/Waqas_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ x: 5 }}

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import {
-  SiReact, SiJavascript, SiHtml5, SiCss, SiTailwindcss, SiFlutter,
-  SiNodedotjs, SiExpress, SiSpringboot, SiMongodb, SiMysql, SiCplusplus
+  SiReact, SiJavascript, SiHtml5, SiCss, SiTailwindcss, SiFlutter, SiTypescript,
+  SiBootstrap, SiVite, SiExpo, SiNodedotjs, SiExpress, SiSpringboot, SiDjango, SiFastapi,
+  SiMongodb, SiMysql, SiPostgresql, SiDocker, SiGit, SiPostman, SiPython
 } from 'react-icons/si';
 import { FaJava } from 'react-icons/fa';
 import { TbApi } from 'react-icons/tb';
@@ -18,23 +19,38 @@ const skillsData = {
     { name: 'CSS3', icon: SiCss, color: '#1572B6' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
     { name: 'Flutter', icon: SiFlutter, color: '#54C5F8' },
+    { name: 'React Native', icon: SiReact, color: '#61DAFB' },
+    { name: 'Expo', icon: SiExpo, color: '#000020' },
+    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
+    { name: 'Vite', icon: SiVite, color: '#646CFF' },
+    { name: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
+    { name: 'Material UI', icon: SiReact, color: '#007FFF' },
   ],
   Backend: [
     { name: 'Node.js', icon: SiNodedotjs, color: '#68A063' },
     { name: 'Express.js', icon: SiExpress, color: '#CCCCCC' },
+    { name: 'Django', icon: SiDjango, color: '#092E20' },
     { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F' },
+    { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
     { name: 'REST APIs', icon: TbApi, color: '#FF6B6B' },
     { name: 'JWT Auth', icon: MdSecurity, color: '#6C63FF' },
   ],
   Databases: [
+    { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
     { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
     { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
   ],
   Languages: [
     { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+    { name: 'Python', icon: SiPython, color: '#3776AB' },
+    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
     { name: 'Java', icon: FaJava, color: '#ED8B00' },
-    { name: 'C++', icon: SiCplusplus, color: '#00599C' },
     { name: 'SQL', icon: BsDatabase, color: '#336791' },
+  ],
+  Tools: [
+    { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+    { name: 'Git', icon: SiGit, color: '#F05032' },
+    { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
   ],
 };
 
@@ -68,6 +84,7 @@ const categoryColors = {
   Backend: '#00D4FF',
   Databases: '#47A248',
   Languages: '#F59E0B',
+  Tools: '#10B981',
 };
 
 const Skills = () => {
