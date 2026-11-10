@@ -49,7 +49,7 @@ const Footer = () => {
               </motion.a>
             ))}
             <motion.a
-              href="/resume.pdf"
+              href="/Waqas_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -3, scale: 1.1, boxShadow: '0 0 15px rgba(0,212,255,0.3)' }}

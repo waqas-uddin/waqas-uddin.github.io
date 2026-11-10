@@ -270,7 +270,7 @@ const Hero = () => {
               {/* Resume — 21st.dev Pulse Beams wrapping the button */}
               <PulseBeam color="#00D4FF">
                 <motion.a
-                  href="/resume.pdf"
+                  href="/Waqas_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0,212,255,0.3)' }}
@@ -313,8 +313,8 @@ const Hero = () => {
 
               {/* Inline resume download icon */}
               <motion.a
-                href="/resume.pdf"
-                download="Waqas_Ahmed_Resume.pdf"
+                href="/Waqas_Resume.pdf"
+                download="Waqas_Resume.pdf"
                 whileHover={{ scale: 1.15, y: -3, boxShadow: '0 0 20px rgba(0,212,255,0.4)' }}
                 whileTap={{ scale: 0.9 }}
                 title="Download Resume"
